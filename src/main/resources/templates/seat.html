@@ -6,7 +6,127 @@
 </head>
 <body>
 	<header id="header" th:include="/navigation/header"></header>
+	<div class="contents">
+		<form action="" id="movieForm" name="movieForm" method="post">
+			<div class="r-container">
+				<div class="boxHead">
+					<h4 class="r-h4">영화예매</h4>
+					<div class="re-res">예매 다시하기</div>
+				</div>
 
+				<div class="boxBody">
+					<div class="r-choice">
+						<div class="choice-person">
+							<dl>
+								<dt>인원선택</dt>
+								<dd>최대4까지 선택가능</dd>
+							</dl>
+
+							<div class="priceList">
+								<div class="p-type">
+									<div class="type">성인</div>
+									<div class="list">
+										<label>
+											<input type="radio" class="p-num" name="adult" value="0" checked>
+											<span>0</span>
+										</label>
+										<label>
+											<input type="radio" class="p-num" name="adult" value="1">
+											<span>1</span>
+										</label>
+										<label>
+											<input type="radio" class="p-num" name="adult" value="2">
+											<span>2</span>
+										</label>
+										<label>
+											<input type="radio" class="p-num" name="adult" value="3">
+											<span>3</span>
+										</label>
+										<label>
+											<input type="radio" class="p-num" name="adult" value="4">
+											<span>4</span>
+										</label>
+									</div>
+								</div>
+								<div class="p-type">
+									<div class="type">청소년</div>
+									<div class="list">
+										<label>
+											<input type="radio" class="p-num" name="teenager" value="0" checked>
+											<span>0</span>
+										</label>
+										<label>
+											<input type="radio" class="p-num" name="teenager" value="1">
+											<span>1</span>
+										</label>
+										<label>
+											<input type="radio" class="p-num" name="teenager" value="2">
+											<span>2</span>
+										</label>
+										<label>
+											<input type="radio" class="p-num" name="teenager" value="3">
+											<span>3</span>
+										</label>
+										<label>
+											<input type="radio" class="p-num" name="teenager" value="4">
+											<span>4</span>
+										</label>
+									</div>
+								</div>
+								<div class="p-type">
+									<div class="type">군인(용사)</div>
+									<div class="list">
+										<label>
+											<input type="radio" class="p-num" name="soldier" value="0" checked>
+											<span>0</span>
+										</label>
+										<label>
+											<input type="radio" class="p-num" name="soldier" value="1">
+											<span>1</span>
+										</label>
+										<label>
+											<input type="radio" class="p-num" name="soldier" value="2">
+											<span>2</span>
+										</label>
+										<label>
+											<input type="radio" class="p-num" name="soldier" value="3">
+											<span>3</span>
+										</label>
+										<label>
+											<input type="radio" class="p-num" name="soldier" value="4">
+											<span>4</span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="btn-box">
+							<button type="button" class="b-prev">영화선택</button>
+						</div>
+					</div>
+					<div class="r-select">
+						<div class="s-con">
+							<div class="seat-datail"></div>
+							<div class="choice-list">
+								<strong>선택 좌석</strong>
+								<ul id="choiceList">
+									<li class="on">B8</li>
+									<li>-</li>
+									<li>-</li>
+									<li>-</li>
+									<li>-</li>
+								</ul>
+							</div>
+						</div>
+						<div class="total">
+							<div class="totalAmt">총 0원</div>
+							<button type="button" class="b-pay">결제하기</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 	<footer id="footer" th:include="/navigation/footer"></footer>
 </body>
 </html>

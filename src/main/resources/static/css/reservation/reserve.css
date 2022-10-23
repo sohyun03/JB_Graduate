@@ -1,0 +1,181 @@
+@charset "UTF-8";
+
+.r-container .boxBody {
+	display: flex;
+}
+
+.r-container .boxBody h5 {
+	line-height: 64px;
+	font-size: 17px;
+	font-weight: 600;
+	padding-left: 20px;
+}
+
+.r-container .boxBody .list-head {
+	height: 65px;
+	font-size: 17px;
+	font-weight: 600;
+	line-height: 64px;
+	border-bottom: 1px solid #e4e9f2;
+}
+
+.cinema-list {
+	width: 360px;
+	border-left: 1px solid #eaeaea;
+}
+
+.cinema-list .list-body .cinema-select-wrap {
+	display: flex;
+}
+
+.cinema-list ul li button {
+	display: block;
+	width: 100%;
+	height: 50px;
+	padding-left: 20px;
+	font-size: 14px;
+}
+
+.cinema-list .cinameArea {
+	width: 150px;
+	background-color: pink;
+}
+
+.cinema-list .areaDatail {
+	width: 210px;
+	background-color: tomato;
+}
+
+.mv-list {
+	width: 360px;
+	border-left: 1px solid #eaeaea;
+}
+
+.mv-list ul li button {
+	display: block;
+	width: 100%;
+	padding: 18px 40px 18px 20px;
+	font-size: 16px;
+	color: #000;
+	border: 0;
+	outline: none;
+	text-align: left;
+	height: 55px;
+	background-color: #e2f1c5;
+}
+
+.date-list {
+	width: 118px;
+	border-left: 1px solid #eaeaea;
+}
+
+.date-list li strong {
+	display: block;
+	padding: 10px 20px;
+	font-size: 17px;
+	color: #000;
+	background: #fff;
+	border-top: 1px solid #e4e9f2;
+	border-bottom: 1px solid #e4e9f2;
+}
+
+button {
+	border: 0;
+	outline: none;
+	background: none;
+	text-align: left;
+	overflow: visible;
+	cursor: pointer;
+	padding: 0;
+}
+
+.date-list li button {
+	display: block;
+	width: 100%;
+	height: 38px;
+	font-size: 14px;
+	padding-left: 20px;
+	/* position: relative; */
+}
+
+.date-list .saturday button {
+	color: #1693ef;
+}
+
+.date-list .sunday button {
+	color: #ff0000;
+}
+
+.time {
+	width: 362px;
+	border-right: 1px solid #eaeaea;
+	border-left: 1px solid #eaeaea;
+}
+
+.time .time-list {
+	height: 305px;
+	border-bottom: 1px solid #e4e9f2;
+}
+
+.time .info-box {
+	height: 195px;
+	padding: 30px 20px 0;
+	display: flex;
+}
+
+.time .info-box .poster {
+	margin-right: 20px;
+	width: 91px;
+	height: 135px;
+}
+
+.time .info-box .text {
+	overflow: hidden;
+}
+
+.time .info-box .text strong {
+	display: block;
+	font-size: 17px;
+	font-weight: 600;
+	margin-bottom: 20px;
+	color: #bdbdbd;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.time .info-box .text strong span {
+	color: #000;
+}
+
+.time .info-box .text dl {
+	display: flex;
+	font-size: 12px;
+	line-height: 18px;
+	margin-bottom: 7px;
+}
+
+.time .info-box .text dt {
+	width: 56px;
+	color: #909090;
+}
+
+.time .info-box .text dd {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.time .next {
+	height: 64px;
+	background-color: gold;
+}
+
+.time .next button {
+	display: block;
+	width: 100%;
+	height: 64px;
+	padding: 0 20px;
+	font-size: 17px;
+	font-weight: 500;
+}

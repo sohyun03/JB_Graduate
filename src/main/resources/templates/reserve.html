@@ -5,8 +5,144 @@
 <title>Insert title here</title>
 </head>
 <body>
-<header id="header" th:include="/navigation/header"></header>
+	<header id="header" th:include="/navigation/header"></header>
+	<div class="contents">
+		<form action="" id="movieForm" name="movieForm" method="post">
+			<div class="r-container">
+				<div class="boxHead">
+					<h4 class="r-h4">영화예매</h4>
+					<div class="re-res">예매 다시하기</div>
+				</div>
 
-<footer id="footer" th:include="/navigation/footer"></footer>
+				<div class="boxBody">
+					<div class="cinema-list">
+						<div class="list-head">
+							<h5>영화관</h5>
+						</div>
+						<div class="list-body">
+							<div class="cinema-select-wrap">
+								<div class="cinameArea">
+									<ul>
+										<li>
+											<button type="button">전체 (80)</button>
+										</li>
+										<li>
+											<button type="button">서울 (15)</button>
+										</li>
+										<li>
+											<button type="button">경기 (10)</button>
+										</li>
+									</ul>
+								</div>
+								<div class="areaDatail">
+									<ul>
+										<li>
+											<button type="button">안양</button>
+										</li>
+										<li>
+											<button type="button">광명</button>
+										</li>
+										<li>
+											<button type="button">시흥</button>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="mv-list">
+						<div class="list-head">
+							<h5>영화</h5>
+						</div>
+						<div class="list-body">
+							<div class="cinema-select-wrap">
+								<div class="movieTitle">
+									<ul>
+										<li>
+											<button type="button">인터스텔라</button>
+										</li>
+										<li>
+											<button type="button">공조:인터내셔널</button>
+										</li>
+										<li>
+											<button type="button">인생은 아름다워</button>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="date-list">
+						<ul>
+							<li>
+								<strong class="year">2022.10</strong>
+							</li>
+							<li class="saturday">
+								<button type="button">토 15</button>
+							</li>
+							<li class="sunday">
+								<button type="button">일 16</button>
+							</li>
+							<li>
+								<button type="button">월 17</button>
+							</li>
+							<li>
+								<strong class="year">2022.11</strong>
+							</li>
+							<li class="saturday">
+								<button type="button">토 15</button>
+							</li>
+							<li class="sunday">
+								<button type="button">일 16</button>
+							</li>
+							<li>
+								<button type="button">월 17</button>
+							</li>
+						</ul>
+					</div>
+					<div class="time">
+						<div class="list-head">
+							<h5>상영시간</h5>
+						</div>
+						<div class="list-body">
+							<div class="time-list"></div>
+							<div class="info-box">
+								<div class="poster">
+									<img alt="" src="https://www.dtryx.com/resources/img/reservation_pc/no_movie.png">
+								</div>
+								<div class="text">
+									<strong> <span class="sTitle">극장판 짱구는 못말려</span>
+									</strong>
+									<dl>
+										<dt>극장</dt>
+										<dd class="sCinema">곰수이시네마 안양점</dd>
+									</dl>
+									<dl>
+										<dt>상영관</dt>
+										<dd class="sTheater">2D/5관</dd>
+									</dl>
+									<dl>
+										<dt>날짜</dt>
+										<dd class="sDate">2022-10-14(금)</dd>
+									</dl>
+									<dl>
+										<dt>상영시간</dt>
+										<dd class="sTime">15:00~17:10</dd>
+									</dl>
+								</div>
+							</div>
+							<div class="next">
+								<button type="button">인원/좌석 선택</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<footer id="footer" th:include="/navigation/footer"></footer>
 </body>
 </html>

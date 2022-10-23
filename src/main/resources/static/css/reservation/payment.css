@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+.r-container .boxBody {
+	display: flex;
+}
+
+.boxBody h3 {
+	padding-left: 16px;
+	font-size: 16px;
+	font-weight: 600;
+	height: 59px;
+	background: #f2f2f2;
+	line-height: 57px;
+	border-bottom: 1px solid #e1e1e1;
+}
+
+.pay1, .pay2 {
+	border-left: 1px solid #eaeaea;
+}
+
+.pay1 {
+	width: 300px;
+}
+
+.pay1 .pay-body {
+	padding: 20px;
+}
+
+.pay1 .pay-body .pay-info .p-img {
+	width: 117px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 5px;
+	margin-bottom: 12px;
+}
+
+.pay1 .pay-body .pay-info .p-img img {
+	width: 117px;
+	height: 172px;
+}
+
+.pay1 .pay-body .pay-info h4 {
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 9px;
+}
+
+.pay1 .pay-body .info {
+	display: flex;
+	align-items: center;
+	font-size: 12px;
+	color: #909090;
+	line-height: 1;
+	margin-bottom: 35px;
+}
+
+.pay1 .pay-body .info p+p {
+	margin-left: 8px;
+	padding-left: 9px;
+	position: relative;
+}
+
+.pay1 .pay-body .info p+p:before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 1px;
+	height: 11px;
+	margin-top: -5px;
+	background: #d8d8d8;
+}
+
+.pay1 .pay-body .pay-info dl {
+	font-size: 12px;
+	line-height: 1.2;
+	margin-bottom: 8px;
+}
+
+.pay1 .pay-body .pay-info dl dt {
+	float: left;
+	width: 48px;
+	color: #606060;
+}
+
+.pay2 {
+	width: 600px;
+}
+
+.pay2 .pay-body {
+	padding: 20px;
+	height: 570px;
+	background-color: #fff5f0;
+}
+
+.pay3 {
+	background: #fafafa;
+	width: 300px;
+	border-right: 1px solid #eaeaea;
+	border-left: 1px solid #eaeaea;
+}
+
+.pay3 .pay-body {
+	padding: 14px 17px;
+	height: 522px;
+}
+
+.pay3 .pay-body .price1 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 12px;
+	font-size: 14px;
+}
+
+.pay3 .pay-body .price2 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 6px;
+	font-size: 12px;
+}
+
+.pay3 .pay-body hr {
+	display: block;
+	width: 100%;
+	margin: 15px 0;
+	background: #e1e1e1;
+	height: 1px;
+	border: 0 none;
+}
+
+.pay3 .pay-body .price3 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 6px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.pay3 .btn-box {
+	position: relative;
+	left: -1px;
+	display: flex;
+	justify-content: space-between;
+	width: 300px;
+	left: -1px;
+}
+
+.pay3 .btn-box button {
+	height: 49px;
+	background: LightCoral;
+	font-size: 16px;
+	color: #fff;
+	font-weight: 600;
+	text-align: center;
+}
+
+.pay3 .btn-box .pre {
+	width: 35%;
+}
+
+.pay3 .btn-box .next {
+	width: 65%;
+	background: #fec7cf;
+	color: #000;
+}

@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+.r-container .boxBody {
+	display: flex;
+}
+
+.r-choice {
+	width: 350px;
+	height: 630px;
+	border-left: 1px solid #eaeaea;
+}
+
+.r-choice .choice-person {
+	padding: 20px 0 0 20px;
+	height: 565px;
+}
+
+.r-choice .choice-person dl {
+	margin-bottom: 18px;
+}
+
+.r-choice .choice-person dl dt {
+	font-size: 17px;
+	color: #000;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.r-choice .choice-person dl dd {
+	font-size: 14px;
+	color: #909090;
+}
+
+.r-choice .choice-person .priceList .p-type {
+	margin-bottom: 20px;
+	/* font-size: 0; */
+}
+
+.r-choice .choice-person .priceList .p-type .type {
+	font-size: 14px;
+	margin-bottom: 8px;
+}
+
+.r-choice .priceList .list label {
+	margin-right: 5px;
+}
+
+.p-num {
+	position: absolute;
+	left: -9999px;
+}
+
+.p-num:checked+span {
+	background-color: pink;
+}
+
+.p-num+span {
+	display: inline-block;
+	vertical-align: middle;
+	width: 30px;
+	height: 30px;
+	border-radius: 3px;
+	border: 1px solid #e1e1e1;
+	text-align: center;
+	line-height: 28px;
+	font-size: 14px;
+	color: #000;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.r-choice .btn-box button {
+	background: #f2f2f2;
+	height: 64px;
+	padding: 20px 15px;
+	width: 350px;
+	text-align: left;
+}
+
+.r-choice .btn-box .b-prev {
+	border: 0;
+	outline: none;
+	font-size: 16px;
+	color: #000;
+	padding-left: 25px;
+}
+
+.r-select {
+	width: 850px;
+	height: 630px;
+	text-align: center;
+	border-right: 1px solid #eaeaea;
+	border-left: 1px solid #eaeaea;
+}
+
+.r-select .s-con {
+	height: 565px;
+	background-color: black;
+}
+
+.r-select .s-con .seat-datail {
+	height: 465px;
+	padding: 20px 30px;
+}
+
+.r-select .s-con .choice-list {
+	height: 100px;
+	text-align: left;
+	padding: 20px 30px;
+}
+
+.r-select .s-con .choice-list strong {
+	display: block;
+	font-size: 14px;
+	color: #fff;
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+
+.r-select .s-con .choice-list ul li.on {
+	background: pink;
+	color: #000;
+	font-weight: 600;
+}
+
+.r-select .s-con .choice-list ul li {
+	float: left;
+	width: 30px;
+	height: 30px;
+	border-radius: 3px;
+	background: #4e4e4e;
+	margin-right: 5px;
+	text-align: center;
+	line-height: 29px;
+	font-size: 12px;
+	color: #fff;
+}
+
+.r-select .total {
+	display: flex;
+	height: 64px;
+	background: #424242;
+	text-align: left;
+}
+
+.r-select .total .totalAmt {
+	padding: 0 0 0 30px;
+	line-height: 64px;
+	font-size: 18px;
+	font-weight: 600;
+	color: #fff;
+	width: 715px;
+}
+
+.r-select .total .b-pay {
+	width: 135px;
+	background: pink;
+	text-align: center;
+	font-size: 17px;
+	font-weight: 600;
+	color: #000;
+}
