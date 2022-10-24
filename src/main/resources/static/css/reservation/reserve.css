@@ -1,5 +1,20 @@
 @charset "UTF-8";
 
+button {
+	border: 0;
+	outline: none;
+	background: none;
+	text-align: left;
+	overflow: visible;
+	cursor: pointer;
+	padding: 0;
+}
+
+li button:hover{
+	background: #e8e8e8 !important;
+	font-weight: 600 !important;
+}
+
 .r-container .boxBody {
 	display: flex;
 }
@@ -35,17 +50,31 @@
 	padding-left: 20px;
 	font-size: 14px;
 }
-
-.cinema-list .cinameArea {
+/* -------- cinema-list  cinemaArea -------- */
+.cinema-list .cinemaArea {
 	width: 150px;
-	background-color: pink;
 }
 
-.cinema-list .areaDatail {
+.cinema-list .cinemaArea ul li button {
+	background-color: #f2f2f2;
+}
+
+.cinema-list .cinemaArea ul li.active button {
+	background: #fff !important;
+	font-weight: 600;
+}
+
+/* -------- cinema-list  areaDatail -------- */
+.cinema-list .areaDetail {
 	width: 210px;
-	background-color: tomato;
 }
 
+.cinema-list .areaDetail ul li.active button {
+	border: 2px solid LightCoral;
+	font-weight: 600;
+}
+
+/* -------- mv-list -------- */
 .mv-list {
 	width: 360px;
 	border-left: 1px solid #eaeaea;
@@ -57,13 +86,15 @@
 	padding: 18px 40px 18px 20px;
 	font-size: 16px;
 	color: #000;
-	border: 0;
-	outline: none;
 	text-align: left;
-	height: 55px;
-	background-color: #e2f1c5;
 }
 
+.mv-list ul li.active button {
+	border: 2px solid LightCoral;
+	font-weight: 600;
+}
+
+/* -------- date-list -------- */
 .date-list {
 	width: 118px;
 	border-left: 1px solid #eaeaea;
@@ -79,31 +110,24 @@
 	border-bottom: 1px solid #e4e9f2;
 }
 
-button {
-	border: 0;
-	outline: none;
-	background: none;
-	text-align: left;
-	overflow: visible;
-	cursor: pointer;
-	padding: 0;
-}
-
 .date-list li button {
 	display: block;
 	width: 100%;
 	height: 38px;
 	font-size: 14px;
 	padding-left: 20px;
-	/* position: relative; */
 }
 
-.date-list .saturday button {
+.date-list li.saturday button {
 	color: #1693ef;
 }
 
-.date-list .sunday button {
+.date-list li.sunday button {
 	color: #ff0000;
+}
+
+.date-list li.active button {
+	border: 2px solid LightCoral;
 }
 
 .time {

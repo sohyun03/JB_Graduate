@@ -2,10 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/reservation/common.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/reservation/payment.css}">
 <title>Insert title here</title>
 </head>
 <body>
-	<header id="header" th:include="/navigation/header"></header>
+	<header id="header" th:include="/header"></header>
 	<div class="contents">
 		<form action="" id="movieForm" name="movieForm" method="post">
 			<div class="r-container">
@@ -98,6 +100,6 @@
 			</div>
 		</form>
 	</div>
-	<footer id="footer" th:include="/navigation/footer"></footer>
+	<footer id="footer" th:include="/footer"></footer>
 </body>
 </html>

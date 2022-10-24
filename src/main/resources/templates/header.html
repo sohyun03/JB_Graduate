@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" type="text/css" href="css/header.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/header.css}">
 <nav>
 	<h1 class="logo">
 		<a href="/">GOMSUI CINEMA</a>
@@ -22,10 +22,10 @@
 	<div class="movie_nav">
 		<ul>
 			<li>
-				<a href="/movie">예매</a>
+				<a th:href="@{/reservation/reserve.do}">예매</a>
 			</li>
 			<li>
-				<a href="./movie.jsp">영화</a>
+				<a th:href="@{/movie.do}">영화</a>
 			</li>
 			<li>
 				<a>영화관</a>

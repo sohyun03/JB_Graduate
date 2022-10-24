@@ -2,10 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/reservation/common.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/reservation/reserve.css}">
 <title>Insert title here</title>
 </head>
 <body>
-	<header id="header" th:include="/navigation/header"></header>
+	<header id="header" th:include="/header"></header>
 	<div class="contents">
 		<form action="" id="movieForm" name="movieForm" method="post">
 			<div class="r-container">
@@ -21,12 +23,12 @@
 						</div>
 						<div class="list-body">
 							<div class="cinema-select-wrap">
-								<div class="cinameArea">
+								<div class="cinemaArea">
 									<ul>
 										<li>
 											<button type="button">전체 (80)</button>
 										</li>
-										<li>
+										<li class="active">
 											<button type="button">서울 (15)</button>
 										</li>
 										<li>
@@ -34,7 +36,7 @@
 										</li>
 									</ul>
 								</div>
-								<div class="areaDatail">
+								<div class="areaDetail">
 									<ul>
 										<li>
 											<button type="button">안양</button>
@@ -42,7 +44,7 @@
 										<li>
 											<button type="button">광명</button>
 										</li>
-										<li>
+										<li class="active">
 											<button type="button">시흥</button>
 										</li>
 									</ul>
@@ -59,7 +61,7 @@
 							<div class="cinema-select-wrap">
 								<div class="movieTitle">
 									<ul>
-										<li>
+										<li class="active">
 											<button type="button">인터스텔라</button>
 										</li>
 										<li>
@@ -80,7 +82,7 @@
 							<li>
 								<strong class="year">2022.10</strong>
 							</li>
-							<li class="saturday">
+							<li class="saturday active">
 								<button type="button">토 15</button>
 							</li>
 							<li class="sunday">
@@ -143,6 +145,6 @@
 			</div>
 		</form>
 	</div>
-	<footer id="footer" th:include="/navigation/footer"></footer>
+	<footer id="footer" th:include="/footer"></footer>
 </body>
 </html>
