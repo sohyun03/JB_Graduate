@@ -25,26 +25,23 @@
 							<div class="cinema-select-wrap">
 								<div class="cinemaArea">
 									<ul>
-										<li>
+										<li class="ca active" >
 											<button type="button">전체 (80)</button>
 										</li>
-										<li class="active">
-											<button type="button">서울 (15)</button>
-										</li>
-										<li>
-											<button type="button">경기 (10)</button>
+										<li class="ca" th:each="a:${areaList}">
+											<button type="button" th:text="${a.aName}"></button>
 										</li>
 									</ul>
 								</div>
 								<div class="areaDetail">
 									<ul>
-										<li>
+										<li class="ad active">
 											<button type="button">안양</button>
 										</li>
-										<li>
+										<li class="ad">
 											<button type="button">광명</button>
 										</li>
-										<li class="active">
+										<li class="ad">
 											<button type="button">시흥</button>
 										</li>
 									</ul>
@@ -61,13 +58,13 @@
 							<div class="cinema-select-wrap">
 								<div class="movieTitle">
 									<ul>
-										<li class="active">
+										<li class="mt active">
 											<button type="button">인터스텔라</button>
 										</li>
-										<li>
+										<li class="mt">
 											<button type="button">공조:인터내셔널</button>
 										</li>
-										<li>
+										<li class="mt">
 											<button type="button">인생은 아름다워</button>
 										</li>
 									</ul>
@@ -82,25 +79,25 @@
 							<li>
 								<strong class="year">2022.10</strong>
 							</li>
-							<li class="saturday active">
+							<li class="dl saturday active">
 								<button type="button">토 15</button>
 							</li>
-							<li class="sunday">
+							<li class="dl sunday">
 								<button type="button">일 16</button>
 							</li>
-							<li>
+							<li class="dl">
 								<button type="button">월 17</button>
 							</li>
 							<li>
 								<strong class="year">2022.11</strong>
 							</li>
-							<li class="saturday">
+							<li class="dl saturday">
 								<button type="button">토 15</button>
 							</li>
-							<li class="sunday">
+							<li class="dl sunday">
 								<button type="button">일 16</button>
 							</li>
-							<li>
+							<li class="dl">
 								<button type="button">월 17</button>
 							</li>
 						</ul>
@@ -146,5 +143,6 @@
 		</form>
 	</div>
 	<footer id="footer" th:include="/footer"></footer>
+	<script src="/js/reservation/reserve.js"></script>
 </body>
 </html>
