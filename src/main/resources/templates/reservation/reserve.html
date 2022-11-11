@@ -29,20 +29,14 @@
 											<button type="button">전체 (80)</button>
 										</li>
 										<li class="ca" th:each="a:${areaList}">
-											<button type="button" th:text="${a.aName}"></button>
+											<button type="button" th:text="${a.aName}" th:onclick="area([[${a.aNo}]])"></button>
 										</li>
 									</ul>
 								</div>
 								<div class="areaDetail">
 									<ul>
-										<li class="ad active">
-											<button type="button">안양</button>
-										</li>
-										<li class="ad">
-											<button type="button">광명</button>
-										</li>
-										<li class="ad">
-											<button type="button">시흥</button>
+										<li class="ad" th:each="cl:${cList}">
+											<button type="button" th:text="ciName"></button>
 										</li>
 									</ul>
 								</div>
@@ -143,6 +137,7 @@
 		</form>
 	</div>
 	<footer id="footer" th:include="/footer"></footer>
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 	<script src="/js/reservation/reserve.js"></script>
 </body>
 </html>
