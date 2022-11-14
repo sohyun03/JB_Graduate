@@ -25,20 +25,22 @@
 							<div class="cinema-select-wrap">
 								<div class="cinemaArea">
 									<ul>
-										<li class="ca active" >
-											<button type="button">전체 (80)</button>
-										</li>
 										<li class="ca" th:each="a:${areaList}">
 											<button type="button" th:text="${a.aName}" th:onclick="area([[${a.aNo}]])"></button>
 										</li>
 									</ul>
 								</div>
 								<div class="areaDetail">
-									<ul>
-										<li class="ad" th:each="cl:${cList}">
-											<button type="button" th:text="ciName"></button>
-										</li>
-									</ul>
+									<th:block th:if="${session.cList} == null">
+										<span>지역을 선택해주세요</span>
+									</th:block>
+									<th:block th:unless="${session.cList} == null">
+										<ul id="adul">
+											<li class="ad" th:each="testList : ${session.cList}">
+												<button type="button" th:text="${testList.ciName}"></button>
+											</li>
+										</ul>
+									</th:block>
 								</div>
 							</div>
 						</div>

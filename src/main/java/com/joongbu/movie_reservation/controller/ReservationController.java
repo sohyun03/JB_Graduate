@@ -1,7 +1,8 @@
 package com.joongbu.movie_reservation.controller;
 
 import java.util.List;
-import java.util.Optional;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,45 +21,43 @@ import com.joongbu.movie_reservation.repository.CinemaRepository;
 @RequestMapping("/reservation")
 @Controller
 public class ReservationController {
-	
+
 	@Autowired
 	AreaRepository areaRepository;
-	
+
 	@Autowired
 	CinemaRepository cinemaRepository;
 
 	@GetMapping("/reserve.do")
 	public void rInser(Model model) {
-		
+
 		List<AreaDto> areaList = areaRepository.findAll();
-		
 		model.addAttribute("areaList", areaList);
-		
 	}
-	
+
 	@ResponseBody // ajax로 받으려면 ResponseBody를 써야함
 	@PostMapping("/option")
-	public void option(@RequestParam("aNo") int aNo, Model model){
-		
+	public List<CinemaDto> option(@RequestParam("aNo") int aNo, Model model, HttpSession session) {
+
 		// System.out.println(aNo);
+
+		List<CinemaDto> cList = cinemaRepository.findByarea(aNo);
+
+		// System.out.println(cList);
+		model.addAttribute("cList", cList);
+		session.setAttribute("cList", cList);
+		//System.out.println(cList);
 		
-		CinemaDto cList = cinemaRepository.findByarea(aNo);
-		
-		System.out.println(cList);
-		
-//		if(aNo == cList.getArea().getANo()) {
-//			
-//			model.addAttribute("cList", cList);
-//		}
-		
+		return cList;
+
 	}
-	
-	@PostMapping("/reserve")
-	public String reserve() {
-		
-		
-		return "redirect:/reservation/seat.do";
-	}
+
+
+//	@PostMapping("/reserve")
+//	public String reserve() {
+//
+//		return "redirect:/reservation/seat.do";
+//	}
 
 	@GetMapping("/seat.do")
 	public void h() {

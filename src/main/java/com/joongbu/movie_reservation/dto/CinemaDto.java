@@ -37,7 +37,7 @@ public class CinemaDto {
 //	@ManyToOne(fetch = FetchType.LAZY)
 //	@JoinColumn(name = "a_no", updatable = false)
 //	private AreaDto area;
-	
+	@Column(name = "a_no")
 	private int area;
 	
 }

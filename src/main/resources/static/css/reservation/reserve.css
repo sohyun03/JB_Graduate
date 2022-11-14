@@ -67,6 +67,8 @@ li button:hover{
 /* -------- cinema-list  areaDatail -------- */
 .cinema-list .areaDetail {
 	width: 210px;
+	max-height: 564px;
+	overflow: auto;
 }
 
 .cinema-list .areaDetail ul li.active button {

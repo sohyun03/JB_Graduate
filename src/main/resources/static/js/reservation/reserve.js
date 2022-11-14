@@ -4,7 +4,8 @@ function areaClick(event) {
 }
 
 const cinemaArea = document.querySelectorAll('.ca');
-
+const ele = document.querySelectorAll('.cinemaArea li')[0];
+ele.classList.add('active');
 cinemaArea.forEach((tab, idx) => {
 	tab.addEventListener('click', function() {
 
@@ -13,19 +14,7 @@ cinemaArea.forEach((tab, idx) => {
 		})
 
 		cinemaArea[idx].classList.add('active')
-	})
-})
 
-const areaDetail = document.querySelectorAll('.ad');
-
-areaDetail.forEach((tab, idx) => {
-	tab.addEventListener('click', function() {
-
-		areaDetail.forEach((item) => {
-			item.classList.remove('active')
-		})
-
-		areaDetail[idx].classList.add('active')
 	})
 })
 
@@ -42,6 +31,10 @@ moveTitle.forEach((tab, idx) => {
 	})
 })
 
+
+
+
+
 const dateList = document.querySelectorAll('.dl');
 
 dateList.forEach((tab, idx) => {
@@ -54,7 +47,25 @@ dateList.forEach((tab, idx) => {
 		dateList[idx].classList.add('active')
 	})
 })
+$("#adul").on('click', '.ad', function() {
 
+	$('#adul li').removeClass('active');
+	$(this).addClass('active');
+
+	//	const areaDetail = document.querySelectorAll('.ad');
+	//
+	//	areaDetail.forEach((tab, idx) => {
+	//		tab.addEventListener('click', function() {
+	//
+	//			areaDetail.forEach((item) => {
+	//				item.classList.remove('active')
+	//			})
+	//
+	//			areaDetail[idx].classList.add('active')
+	//
+	//		})
+	//	})
+})
 
 function area(aNo) {
 	// console.log(name);
@@ -64,11 +75,11 @@ function area(aNo) {
 		data: {
 			aNo: aNo
 		},
+		success: function(data) {
+			$('#adul').load(location.href + ' #adul');
+		},
 		error: function(error) {
 			console.log("error");
-		},
-		success: function(data) {
-			console.log("success");
 		}
 	});
 }
