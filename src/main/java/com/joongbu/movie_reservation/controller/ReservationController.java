@@ -44,9 +44,8 @@ public class ReservationController {
 		List<CinemaDto> cList = cinemaRepository.findByarea(aNo);
 
 		// System.out.println(cList);
-		model.addAttribute("cList", cList);
+		// model.addAttribute("cList", cList);
 		session.setAttribute("cList", cList);
-		//System.out.println(cList);
 		
 		return cList;
 

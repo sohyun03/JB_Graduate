@@ -31,16 +31,11 @@
 									</ul>
 								</div>
 								<div class="areaDetail">
-									<th:block th:if="${session.cList} == null">
-										<span>지역을 선택해주세요</span>
-									</th:block>
-									<th:block th:unless="${session.cList} == null">
-										<ul id="adul">
-											<li class="ad" th:each="testList : ${session.cList}">
-												<button type="button" th:text="${testList.ciName}"></button>
-											</li>
-										</ul>
-									</th:block>
+									<ul id="adul">
+										<li class="ad" th:each="testList : ${session.cList}">
+											<button type="button" th:text="${testList.ciName}"></button>
+										</li>
+									</ul>
 								</div>
 							</div>
 						</div>
