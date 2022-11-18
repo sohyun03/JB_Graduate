@@ -31,11 +31,9 @@ moveTitle.forEach((tab, idx) => {
 	})
 })
 
-
-
-
-
-const dateList = document.querySelectorAll('.dl');
+let dateList = document.querySelectorAll('.dl');
+let bt = $(".hi");
+console.log(bt[0].value);
 
 dateList.forEach((tab, idx) => {
 	tab.addEventListener('click', function() {
@@ -67,6 +65,7 @@ $("#adul").on('click', '.ad', function() {
 	//	})
 })
 
+// 지역 입력받아서 세부지역 뿌려주기
 function area(aNo) {
 	// console.log(name);
 	$.ajax({
@@ -77,6 +76,47 @@ function area(aNo) {
 		},
 		success: function(data) {
 			$('#adul').load(location.href + ' #adul');
+		},
+		error: function(error) {
+			console.log("error");
+		}
+	});
+}
+
+
+
+
+
+
+
+let getaNo = 0;
+let getciName = "";
+let movieName = "";
+let getDate = "";
+let getTheater = "";
+let getTime = "";
+
+function aNofuc(aNo){
+	getaNo = aNo;
+	// console.log(aNo);
+}
+function ciNofuc(ciName){
+	getciName = ciName;
+	$("#sCinema").text(ciName);
+	// $('input[name=inputValue]').attr('value',"test");
+}
+function mlfuc(mlName){
+	movieName = mlName;
+	$("#sTitle").text(mlName); 
+	
+	$.ajax({
+		type: 'POST',
+		url: "poster",
+		data: {
+			mlName: mlName
+		},
+		success: function(data) {
+			document.getElementById("posterThum").src = data;
 		},
 		error: function(error) {
 			console.log("error");

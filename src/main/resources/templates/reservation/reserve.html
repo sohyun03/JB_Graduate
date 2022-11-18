@@ -26,15 +26,14 @@
 								<div class="cinemaArea">
 									<ul>
 										<li class="ca" th:each="a:${areaList}">
-											<button type="button" th:text="${a.aName}" th:onclick="area([[${a.aNo}]])"></button>
-											<input type="hidden" name="rArea" value="1">
+											<button type="button" th:text="${a.aName}" th:onclick="area([[${a.aNo}]]); aNofuc([[${a.aNo}]]);"></button>
 										</li>
 									</ul>
 								</div>
 								<div class="areaDetail">
 									<ul id="adul">
-										<li class="ad" th:each="testList : ${session.cList}">
-											<button type="button" name="rCinema" th:text="${testList.ciName}"></button>
+										<li class="ad" th:each="ci:${session.cList}">
+											<button type="button" name="rCinema" th:text="${ci.ciName}" th:onclick="ciNofuc([[${ci.ciName}]])"></button>
 										</li>
 									</ul>
 								</div>
@@ -51,7 +50,7 @@
 								<div class="movieTitle">
 									<ul>
 										<li class="mt" th:each="ml:${mlList}">
-											<button type="button" name="rMovie" th:text="${ml.mlName}"></button>
+											<button type="button" name="rMovie" th:text="${ml.mlName}" th:onclick="mlfuc([[${ml.mlName}]])"></button>
 										</li>
 									</ul>
 								</div>
@@ -65,10 +64,10 @@
 							<li>
 								<strong class="year">2022.10</strong>
 							</li>
-							<li class="dl saturday active">
-								<button type="button">토 15</button>
+							<li class="dl" th:each="dl:${dateList}">
+								<button type="button" class="hi" th:text="${dl}" value="${dl}"></button>
 							</li>
-							<li class="dl sunday">
+<!-- 							<li class="dl sunday">
 								<button type="button">일 16</button>
 							</li>
 							<li class="dl">
@@ -85,7 +84,7 @@
 							</li>
 							<li class="dl">
 								<button type="button">월 17</button>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 					<div class="time">
@@ -96,14 +95,14 @@
 							<div class="time-list"></div>
 							<div class="info-box">
 								<div class="poster">
-									<img alt="" src="https://www.dtryx.com/resources/img/reservation_pc/no_movie.png">
+									<img id="posterThum" alt="" src="https://www.dtryx.com/resources/img/reservation_pc/no_movie.png">
 								</div>
 								<div class="text">
-									<strong> <span class="sTitle">극장판 짱구는 못말려</span>
+									<strong> <span class="sTitle" id="sTitle">영화를 선택하세요</span>
 									</strong>
 									<dl>
 										<dt>극장</dt>
-										<dd class="sCinema">곰수이시네마 안양점</dd>
+										<dd class="sCinema" id="sCinema">극장을 선택하세요</dd>
 									</dl>
 									<dl>
 										<dt>상영관</dt>

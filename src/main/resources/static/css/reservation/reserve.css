@@ -80,7 +80,6 @@ li button:hover{
 .mv-list {
 	width: 360px;
 	border-left: 1px solid #eaeaea;
-	
 }
 
 .mv-list ul li button {
@@ -90,6 +89,7 @@ li button:hover{
 	font-size: 16px;
 	color: #000;
 	text-align: left;
+	box-sizing: border-box;
 }
 
 .mv-list ul li.active button {

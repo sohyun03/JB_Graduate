@@ -11,72 +11,16 @@
 		<h2>현재 상영작</h2>
 		<div class="movie-list">
 			<ul class="m-list">
-				<li>
+				<li th:each="ml:${mlList}">
 					<div class="box-image">
-						<img alt="" src="">
+						<img th:src="${ml.imgurl}" src="영화포스터">
 					</div>
 					<div class="box-content">
 						<div class="title">
-							<strong>굴개리</strong>
+							<strong th:text="${ml.mlName}"></strong>
 						</div>
 						<div class="rate-date">
-							<span class="rate">예매율 50%</span> <span class="date">개봉일 2022.10.10</span>
-						</div>
-						<div class="m-reserv">
-							<button type="button">예매하기</button>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="box-image">
-						<img alt="" src="">
-					</div>
-					<div class="box-content">
-						<div class="title">굴개리</div>
-						<div class="rate-date">
-							<span class="rate">예매율 50%</span> <span class="date">개봉일 2022.10.10</span>
-						</div>
-						<div class="m-reserv">
-							<button type="button">예매하기</button>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="box-image">
-						<img alt="" src="">
-					</div>
-					<div class="box-content">
-						<div class="title">굴개리</div>
-						<div class="rate-date">
-							<span class="rate">예매율 50%</span> <span class="date">개봉일 2022.10.10</span>
-						</div>
-						<div class="m-reserv">
-							<button type="button">예매하기</button>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="box-image">
-						<img alt="" src="">
-					</div>
-					<div class="box-content">
-						<div class="title">굴개리</div>
-						<div class="rate-date">
-							<span class="rate">예매율 50%</span> <span class="date">개봉일 2022.10.10</span>
-						</div>
-						<div class="m-reserv">
-							<button type="button">예매하기</button>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="box-image">
-						<img alt="" src="">
-					</div>
-					<div class="box-content">
-						<div class="title">굴개리</div>
-						<div class="rate-date">
-							<span class="rate">예매율 50%</span> <span class="date">개봉일 2022.10.10</span>
+							평점&nbsp;<span class="rate" th:text="${ml.mlRate}"></span>&nbsp;&nbsp;&nbsp; 개봉일 <span class="date" th:text="${#dates.format(ml.mlDate,'yyyy-MM-dd')}"></span>
 						</div>
 						<div class="m-reserv">
 							<button type="button">예매하기</button>
