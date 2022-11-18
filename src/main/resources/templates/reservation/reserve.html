@@ -9,7 +9,7 @@
 <body>
 	<header id="header" th:include="/header"></header>
 	<div class="contents">
-		<form action="" id="movieForm" name="movieForm" method="post">
+		<form action="/reservation/reserve" id="movieForm" name="movieForm" method="post">
 			<div class="r-container">
 				<div class="boxHead">
 					<h4 class="r-h4">영화예매</h4>
@@ -27,13 +27,14 @@
 									<ul>
 										<li class="ca" th:each="a:${areaList}">
 											<button type="button" th:text="${a.aName}" th:onclick="area([[${a.aNo}]])"></button>
+											<input type="hidden" name="rArea" value="1">
 										</li>
 									</ul>
 								</div>
 								<div class="areaDetail">
 									<ul id="adul">
 										<li class="ad" th:each="testList : ${session.cList}">
-											<button type="button" th:text="${testList.ciName}"></button>
+											<button type="button" name="rCinema" th:text="${testList.ciName}"></button>
 										</li>
 									</ul>
 								</div>
@@ -49,14 +50,8 @@
 							<div class="cinema-select-wrap">
 								<div class="movieTitle">
 									<ul>
-										<li class="mt active">
-											<button type="button">인터스텔라</button>
-										</li>
-										<li class="mt">
-											<button type="button">공조:인터내셔널</button>
-										</li>
-										<li class="mt">
-											<button type="button">인생은 아름다워</button>
+										<li class="mt" th:each="ml:${mlList}">
+											<button type="button" name="rMovie" th:text="${ml.mlName}"></button>
 										</li>
 									</ul>
 								</div>
@@ -125,7 +120,7 @@
 								</div>
 							</div>
 							<div class="next">
-								<button type="button">인원/좌석 선택</button>
+								<button type="submit">인원/좌석 선택</button>
 							</div>
 						</div>
 					</div>

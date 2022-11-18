@@ -8,6 +8,5 @@ import com.joongbu.movie_reservation.dto.AreaDto;
 @Repository
 public interface AreaRepository extends JpaRepository<AreaDto, Integer>{
 
-	long countByaNo(int aNo);
 	
 }

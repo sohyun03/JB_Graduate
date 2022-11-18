@@ -12,11 +12,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.joongbu.movie_reservation.dto.AreaDto;
 import com.joongbu.movie_reservation.dto.CinemaDto;
+import com.joongbu.movie_reservation.dto.MovieListDto;
+import com.joongbu.movie_reservation.dto.ReservedDto;
 import com.joongbu.movie_reservation.repository.AreaRepository;
 import com.joongbu.movie_reservation.repository.CinemaRepository;
+import com.joongbu.movie_reservation.repository.MovieListRepository;
 
 @RequestMapping("/reservation")
 @Controller
@@ -27,12 +31,17 @@ public class ReservationController {
 
 	@Autowired
 	CinemaRepository cinemaRepository;
+	
+	@Autowired
+	MovieListRepository movieListRepository;
 
 	@GetMapping("/reserve.do")
 	public void rInser(Model model) {
 
 		List<AreaDto> areaList = areaRepository.findAll();
+		List<MovieListDto> mlList = movieListRepository.findAll();
 		model.addAttribute("areaList", areaList);
+		model.addAttribute("mlList", mlList);
 	}
 
 	@ResponseBody // ajax로 받으려면 ResponseBody를 써야함
@@ -52,15 +61,18 @@ public class ReservationController {
 	}
 
 
-//	@PostMapping("/reserve")
-//	public String reserve() {
-//
-//		return "redirect:/reservation/seat.do";
-//	}
+	@PostMapping("/reserve")
+	public String reserve(HttpSession session, ReservedDto rDto) {
+		
+		session.setAttribute("rSession", rDto);
+		
+		
+		return "redirect:/reservation/seat.do";
+	}
 
 	@GetMapping("/seat.do")
-	public void h() {
-
+	public void h(@SessionAttribute ReservedDto rSession) {
+		System.out.println(rSession);
 	}
 
 	@GetMapping("/payment.do")

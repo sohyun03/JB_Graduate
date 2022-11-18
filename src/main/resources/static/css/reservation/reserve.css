@@ -80,6 +80,7 @@ li button:hover{
 .mv-list {
 	width: 360px;
 	border-left: 1px solid #eaeaea;
+	
 }
 
 .mv-list ul li button {
@@ -94,6 +95,11 @@ li button:hover{
 .mv-list ul li.active button {
 	border: 2px solid LightCoral;
 	font-weight: 600;
+}
+
+.mv-list .list-body{
+	max-height: 564px;
+	overflow: auto;
 }
 
 /* -------- date-list -------- */
