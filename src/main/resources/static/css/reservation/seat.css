@@ -103,6 +103,48 @@
 	padding: 20px 30px;
 }
 
+.seat-datail .screen {
+	background-color: #c0c0c0;
+	width: 500px;
+	height: 40px;
+	margin: 0 auto;
+	line-height: 40px;
+}
+.seat-datail .seatArea{
+	width: 500px;
+	height: 300px;
+	margin: 0 auto;
+	margin-top: 70px;
+	padding-left: 15px;
+}
+.s-num {
+	position: absolute;
+	left: -9999px; 
+}
+
+.s-num:checked+span {
+	background-color: LightCoral;
+}
+.seatArea .reserved+span {
+	background-color: LightCoral;
+	opacity: 0.5;
+}
+.s-num+span {
+	float: left;
+	width: 35px;
+	height: 35px;
+	border-radius: 3px;
+	background: #4e4e4e;
+	margin-right: 13px;
+	text-align: center;
+	line-height: 34px;
+	font-size: 12px;
+	color: #fff;
+	margin-bottom: 10px; 
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
 .r-select .s-con .choice-list {
 	height: 100px;
 	text-align: left;

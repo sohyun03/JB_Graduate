@@ -160,6 +160,10 @@ li button:hover{
 	width: 91px;
 	height: 135px;
 }
+.time .info-box .poster img{
+	width: 91px;
+	height: 135px;
+}
 
 .time .info-box .text {
 	overflow: hidden;

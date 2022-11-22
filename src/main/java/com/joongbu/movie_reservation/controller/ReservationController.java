@@ -21,9 +21,11 @@ import com.joongbu.movie_reservation.dto.AreaDto;
 import com.joongbu.movie_reservation.dto.CinemaDto;
 import com.joongbu.movie_reservation.dto.MovieListDto;
 import com.joongbu.movie_reservation.dto.ReservedDto;
+import com.joongbu.movie_reservation.dto.SeatDto;
 import com.joongbu.movie_reservation.repository.AreaRepository;
 import com.joongbu.movie_reservation.repository.CinemaRepository;
 import com.joongbu.movie_reservation.repository.MovieListRepository;
+import com.joongbu.movie_reservation.repository.SeatRepository;
 
 @RequestMapping("/reservation")
 @Controller
@@ -37,6 +39,9 @@ public class ReservationController {
 
 	@Autowired
 	MovieListRepository movieListRepository;
+	
+	@Autowired
+	SeatRepository seatRepository;
 
 	@GetMapping("/reserve.do")
 	public void rInser(Model model) {
@@ -149,8 +154,10 @@ public class ReservationController {
 	}
 
 	@GetMapping("/seat.do")
-	public void h(@SessionAttribute ReservedDto rSession) {
-		System.out.println(rSession);
+	public void h(Model model) {
+		List<SeatDto> sList = seatRepository.findAll();
+		
+		model.addAttribute("sList", sList);
 	}
 
 	@GetMapping("/payment.do")

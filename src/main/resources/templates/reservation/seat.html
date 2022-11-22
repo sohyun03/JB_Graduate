@@ -108,7 +108,21 @@
 					</div>
 					<div class="r-select">
 						<div class="s-con">
-							<div class="seat-datail"></div>
+							<div class="seat-datail">
+								<div class="screen">Screen</div>
+								<div class="seatArea">
+									<label th:each="s, stat:${sList}">
+										<th:block th:if="${s.reserved == 0}">
+											<input type="checkbox" class="s-num" name="seat" th:value="${stat.count}" onchange="count(this)" disabled>
+											<span th:text="${s.sName}"></span>
+										</th:block>
+										<th:block th:unless="${s.reserved == 0}">
+											<input type="checkbox" class="s-num reserved" name="seat" disabled>
+											<span th:text="${s.sName}"></span>
+										</th:block>
+									</label>
+								</div>
+							</div>
 							<div class="choice-list">
 								<strong>선택 좌석</strong>
 								<ul id="choiceList">
@@ -130,5 +144,7 @@
 		</form>
 	</div>
 	<footer id="footer" th:include="/footer"></footer>
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<script src="/js/reservation/seat.js"></script>
 </body>
 </html>
