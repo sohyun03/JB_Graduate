@@ -33,7 +33,7 @@ moveTitle.forEach((tab, idx) => {
 
 let dateList = document.querySelectorAll('.dl');
 let bt = $(".hi");
-console.log(bt[0].value);
+//console.log(bt[0].value);
 
 dateList.forEach((tab, idx) => {
 	tab.addEventListener('click', function() {
@@ -103,6 +103,7 @@ function aNofuc(aNo){
 function ciNofuc(ciName){
 	getciName = ciName;
 	$("#sCinema").text(ciName);
+	//console.log(getciName)
 	// $('input[name=inputValue]').attr('value',"test");
 }
 function mlfuc(mlName){
@@ -123,3 +124,22 @@ function mlfuc(mlName){
 		}
 	});
 }
+
+$('#seatgo').click(function() {
+	$.ajax({
+		type: 'POST',
+		url: "reserve",
+		data: {
+			rArea: getaNo,
+			rCinema: getciName,
+			rMovie: movieName
+		},
+		success: function(data) {
+			console.log("success");
+		},
+		error: function(error) {
+			console.log("error");
+		}
+	});
+	
+});

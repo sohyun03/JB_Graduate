@@ -5,13 +5,14 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 <title>곰수이</title>
 </head>
 <body>
 	<header id="header" th:include="/header"></header>
 	<div id="mainContainer">
 		<div class="banner">
-			<!-- 영화광고 -->
+			<img alt="광고" src="/img/슬라이드8.png">
 		</div>
 		<div class="contents">
 			<h2 class="h2">
@@ -19,23 +20,24 @@
 				<a class="btn-more">+</a>
 			</h2>
 			<div class="top10">
-				<div class="swiper-container">
+				<div class="swiper mySwiper">
 					<div class="swiper-wrapper">
-						<div class="swiper-slide">Slide 1</div>
-						<div class="swiper-slide">Slide 2</div>
-						<div class="swiper-slide">Slide 3</div>
+						<div class="swiper-slide" th:each="tl:${topList}">
+							<img th:src="${tl.imgurl}" src="영화포스터">
+							<div class="title">
+								<strong th:text="${tl.mlName}"></strong>
+							</div>
+						</div>
 					</div>
-					<!-- <div class="swiper-button-next"></div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-pagination"></div> -->
+					<div class="swiper-pagination"></div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	<df-messenger intent="WELCOME" chat-title="쭈니의 영화추천" agent-id="6642608d-d04d-4989-b520-111a6d9da567" language-code="ko"></df-messenger>
 	<footer id="footer" th:include="/footer"></footer>
-
-	<!-- <script type="text/javascript" src="./static/js/index.js"></script> -->
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script src="/js/index.js"></script>
 </body>
 </html>

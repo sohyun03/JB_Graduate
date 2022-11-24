@@ -9,97 +9,115 @@
 <body>
 	<header id="header" th:include="/header"></header>
 	<div class="contents">
-		<form action="" id="movieForm" name="movieForm" method="post">
-			<div class="r-container">
-				<div class="boxHead">
-					<h4 class="r-h4">영화예매</h4>
-					<div class="re-res">예매 다시하기</div>
-				</div>
 
-				<div class="boxBody">
-					<div class="pay1">
-						<div class="head-pay">
-							<h3>예매정보</h3>
-						</div>
-						<div class="pay-body">
-							<div class="pay-info">
-								<div class="p-img">
-									<img src="https://img.dtryx.com/poster/2022/09/40E0E5FE-B3B1-46CC-9FB4-94C55F85E75A.small.jpg">
-								</div>
-								<h4>인생은 아름다워</h4>
-								<div class="info">
-									<p>예매율 11.25%</p>
-									<p>2022.10.15 개봉</p>
-								</div>
-								<dl>
-									<dt>극장</dt>
-									<dd class="pCinema">곰수이시네마 안양점</dd>
-								</dl>
-								<dl>
-									<dt>날짜</dt>
-									<dd class="pDate">2022-10-14(금)</dd>
-								</dl>
-								<dl>
-									<dt>인원</dt>
-									<dd class="pPerson">성인 2명</dd>
-								</dl>
-								<dl>
-									<dt>상영관</dt>
-									<dd class="pTheater">2D/5관</dd>
-								</dl>
-								<dl>
-									<dt>시간</dt>
-									<dd class="pTime">15:00~17:10</dd>
-								</dl>
-								<dl>
-									<dt>좌석</dt>
-									<dd class="pSeat">D5, D6</dd>
-								</dl>
+		<div class="r-container">
+			<div class="boxHead">
+				<h4 class="r-h4">영화예매</h4>
+				<!-- <div class="re-res">예매 다시하기</div> -->
+			</div>
+
+			<div class="boxBody">
+				<div class="pay1">
+					<div class="head-pay">
+						<h3>예매정보</h3>
+					</div>
+					<div class="pay-body">
+						<div class="pay-info">
+							<div class="p-img">
+								<img th:src="${movieList.imgurl}" alt="영화포스터">
 							</div>
+							<h4>[[${session.rSession.rMovie}]]</h4>
+							<div class="info">
+								<p>평점 [[${movieList.mlRate}]]</p>
+								<p>2022.10.15 개봉</p>
+							</div>
+							<dl>
+								<dt>극장</dt>
+								<dd class="pCinema">곰수이시네마 [[${session.rSession.rCinema}]]점</dd>
+							</dl>
+							<dl>
+								<dt>날짜</dt>
+								<dd class="pDate">2022-10-14(금)</dd>
+							</dl>
+							<dl>
+								<dt>인원</dt>
+								<dd class="pPerson">[[${session.rSession.rPeople}]]명</dd>
+							</dl>
+							<dl>
+								<dt>상영관</dt>
+								<dd class="pTheater">2D/5관</dd>
+							</dl>
+							<dl>
+								<dt>시간</dt>
+								<dd class="pTime">15:00~17:10</dd>
+							</dl>
+							<dl>
+								<dt>좌석</dt>
+								<dd class="pSeat">B5, B6, B7</dd>
+							</dl>
 						</div>
 					</div>
-					<div class="pay2">
-						<!-- <div class="head-pay">
+				</div>
+				<div class="pay2">
+					<!-- <div class="head-pay">
 							<h3>할인적용</h3>
 						</div>
 						<div class="pay-body"></div> -->
-						<div class="head-pay">
-							<h3>결제수단 선택</h3>
-						</div>
-						<div class="pay-body">ㅇㅇ</div>
+					<div class="head-pay">
+						<h3>결제수단 선택</h3>
 					</div>
-					<div class="pay3">
-						<div class="head-pay">
-							<h3>최종결제</h3>
+					<div class="pay-body">
+						<!-- <button id="paybtn">결제하기</button> -->
+						<div class="test">
+							카드
 						</div>
-						<div class="pay-body">
-							<dl class="price1">
-								<dt>티켓금액(2매)</dt>
-								<dd>12,000원</dd>
-							</dl>
-							<dl class="price2">
-								<dt>성인 (6,000원 x 2명)</dt>
-								<dd>12,000원</dd>
-							</dl>
-							<dl class="discount" style="display: none;">
-								<dt></dt>
-								<dd></dd>
-							</dl>
-							<hr>
-							<dl class="price3">
-								<dt>총 결제금액</dt>
-								<dd>12,000원</dd>
-							</dl>
-						</div>
-						<div class="btn-box">
-							<button type="button" class="pre">이전</button>
-							<button type="button" class="next">결제</button>
+						<div class="test">
+							무통장입금
 						</div>
 					</div>
 				</div>
+				<div class="pay3">
+					<div class="head-pay">
+						<h3>최종결제</h3>
+					</div>
+					<div class="pay-body">
+						<dl class="price1">
+							<dt>티켓금액(3매)</dt>
+							<dd>16000원</dd>
+						</dl>
+						<dl class="price2">
+							<dt>성인 (6000원 x 2명)</dt>
+							<dd>12000원</dd>
+						</dl>
+						<dl class="price23">
+							<dt>청소년 (4000원 x 1명)</dt>
+							<dd>4000원</dd>
+						</dl>
+						<dl class="discount" style="display: none;">
+							<dt></dt>
+							<dd></dd>
+						</dl>
+						<hr>
+						<dl class="price3">
+							<dt>총 결제금액</dt>
+							<dd>16000원</dd>
+						</dl>
+					</div>
+					<div class="btn-box">
+						<button type="button" class="pre">이전</button>
+						<button type="button" class="next">결제</button>
+					</div>
+				</div>
 			</div>
-		</form>
+		</div>
 	</div>
 	<footer id="footer" th:include="/footer"></footer>
+
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<!-- iamport.payment.js -->
+	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+	<script src="/js/reservation/payment.js"></script>
 </body>
 </html>

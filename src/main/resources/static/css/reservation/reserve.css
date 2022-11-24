@@ -10,7 +10,7 @@ button {
 	padding: 0;
 }
 
-li button:hover{
+li button:hover {
 	background: #e8e8e8 !important;
 	font-weight: 600 !important;
 }
@@ -97,7 +97,7 @@ li button:hover{
 	font-weight: 600;
 }
 
-.mv-list .list-body{
+.mv-list .list-body {
 	max-height: 564px;
 	overflow: auto;
 }
@@ -137,7 +137,7 @@ li button:hover{
 .date-list li.active button {
 	border: 2px solid LightCoral;
 }
-
+/* -------- time -------- */
 .time {
 	width: 362px;
 	border-right: 1px solid #eaeaea;
@@ -149,6 +149,32 @@ li button:hover{
 	border-bottom: 1px solid #e4e9f2;
 }
 
+.time .cd_name {
+	height: 30px;
+	border-bottom: 1px solid #e4e9f2;
+	line-height: 30px;
+	padding-left: 20px;
+	font-size: 13px;
+}
+
+.time .movieStart {
+	padding: 20px;
+}
+
+.movieStart .timebox {
+	border: 1px solid #d6c8c7;
+	border-radius: 5px;
+	width: 90px;
+	height: 50px;
+	font-size: 13px;
+	text-align: center;
+	line-height: 50px;
+}
+.movieStart .active  {
+	border: 2px solid LightCoral;
+	font-weight: 600;
+}
+/* -------- time / info-box -------- */
 .time .info-box {
 	height: 195px;
 	padding: 30px 20px 0;
@@ -160,7 +186,8 @@ li button:hover{
 	width: 91px;
 	height: 135px;
 }
-.time .info-box .poster img{
+
+.time .info-box .poster img {
 	width: 91px;
 	height: 135px;
 }
@@ -204,7 +231,7 @@ li button:hover{
 
 .time .next {
 	height: 64px;
-	background-color: gold;
+	background-color: #f7bcc1;
 }
 
 .time .next button {
@@ -214,4 +241,11 @@ li button:hover{
 	padding: 0 20px;
 	font-size: 17px;
 	font-weight: 500;
+	color: white;
+}
+.time .next button span{
+	padding-left: 195px;
+	font-size: 20px;
+	font-weight: 600;
+	color: #fef6f7;
 }

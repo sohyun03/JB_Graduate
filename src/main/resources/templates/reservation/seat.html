@@ -13,7 +13,7 @@
 			<div class="r-container">
 				<div class="boxHead">
 					<h4 class="r-h4">영화예매</h4>
-					<div class="re-res">예매 다시하기</div>
+					<!-- <div class="re-res">예매 다시하기</div> -->
 				</div>
 
 				<div class="boxBody">
@@ -110,33 +110,37 @@
 						<div class="s-con">
 							<div class="seat-datail">
 								<div class="screen">Screen</div>
-								<div class="seatArea">
-									<label th:each="s, stat:${sList}">
-										<th:block th:if="${s.reserved == 0}">
-											<input type="checkbox" class="s-num" name="seat" th:value="${stat.count}" onchange="count(this)" disabled>
-											<span th:text="${s.sName}"></span>
-										</th:block>
-										<th:block th:unless="${s.reserved == 0}">
-											<input type="checkbox" class="s-num reserved" name="seat" disabled>
-											<span th:text="${s.sName}"></span>
-										</th:block>
-									</label>
-								</div>
+								<form action="/reservation/tests" method="post">
+									<div class="seatArea">
+										<label th:each="s, stat:${sList}">
+											<th:block th:if="${s.reserved == 0}">
+												<input type="checkbox" class="s-num" name="rSeats" th:value="${stat.count}" onchange="count(this)" disabled>
+												<span th:text="${s.sName}"></span>
+											</th:block>
+											<th:block th:unless="${s.reserved == 0}">
+												<input type="checkbox" class="s-num reserved" name="rSeats" disabled>
+												<span th:text="${s.sName}"></span>
+											</th:block>
+										</label>
+									</div>
+								</form>
 							</div>
 							<div class="choice-list">
 								<strong>선택 좌석</strong>
 								<ul id="choiceList">
-									<li class="on">B8</li>
+									<li class="on">B5</li>
+									<li class="on">B6</li>
+									<li class="on">B7</li>
+									<!-- <li>-</li>
 									<li>-</li>
 									<li>-</li>
-									<li>-</li>
-									<li>-</li>
+									<li>-</li> -->
 								</ul>
 							</div>
 						</div>
 						<div class="total">
-							<div class="totalAmt">총 0원</div>
-							<button type="button" class="b-pay">결제하기</button>
+							<div class="totalAmt">총 16000원</div>
+							<button type="button" class="b-pay" id="paygo" th:onclick="|location.href='@{/reservation/payment.do}'|">결제하기</button>
 						</div>
 					</div>
 				</div>

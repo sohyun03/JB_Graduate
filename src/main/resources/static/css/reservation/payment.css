@@ -90,8 +90,23 @@
 .pay2 .pay-body {
 	padding: 20px;
 	height: 570px;
-	background-color: #fff5f0;
+	background-color: #fde8e5;
 }
+.pay2 .pay-body .test{
+	border: 1px solid #d6c8c7;
+	border-radius: 5px;
+	width: 120px;
+	height: 70px;
+	font-size: 15px;
+	text-align: center;
+	line-height: 70px;
+	margin-right: 30px;
+	display: inline-block;
+	background-color: #f5a6b1;
+	color: white;
+}
+
+
 
 .pay3 {
 	background: #fafafa;
@@ -109,11 +124,20 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 12px;
+	margin-bottom: 25px;
 	font-size: 14px;
 }
 
 .pay3 .pay-body .price2 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 6px;
+	font-size: 12px;
+}
+
+.pay3 .pay-body .price23 {
+	margin-top: 15px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -150,7 +174,7 @@
 
 .pay3 .btn-box button {
 	height: 49px;
-	background: LightCoral;
+	background: #f6b1ba;
 	font-size: 16px;
 	color: #fff;
 	font-weight: 600;
@@ -163,6 +187,6 @@
 
 .pay3 .btn-box .next {
 	width: 65%;
-	background: #fec7cf;
+	background: #fce6e9;
 	color: #000;
 }

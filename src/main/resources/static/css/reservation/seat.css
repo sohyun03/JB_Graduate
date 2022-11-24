@@ -196,9 +196,9 @@
 
 .r-select .total .b-pay {
 	width: 135px;
-	background: pink;
+	background: #f7bcc1;
 	text-align: center;
 	font-size: 17px;
 	font-weight: 600;
-	color: #000;
+	color: white;
 }

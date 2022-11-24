@@ -24,8 +24,12 @@ body {
 	background-color: #FFD8D8;
 }
 
+.banner img {
+	height: 500px;
+	width: 100%;
+}
+
 .contents {
-	background-color: #F6F6F6;
 	margin: 0 auto;
 	width: 980px;
 	padding-top: 50px;
@@ -46,11 +50,35 @@ body {
     transition: all 0.5s ease; */
 }
 
-.swiper-container {
+.swiper {
 	overflow: hidden;
+	height: 375px;
+	width: 100%
 }
 
-.swiper-container .swiper-slide {
-	background-color: #FFD8D8;
-	height: 200px;
+.swiper-slide {
+	width: 20%;
 }
+
+.swiper-slide img {
+	width: 100%;
+	height: 331px;
+	margin-bottom: 10px;
+}
+
+.swiper-slide .title {
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+df-messenger {
+   --df-messenger-bot-message: #fedce7;
+   --df-messenger-button-titlebar-color: LightCoral;
+   --df-messenger-chat-background-color: #fafafa;
+   --df-messenger-font-color: #2f1717;
+   --df-messenger-send-icon: #878fac;
+   --df-messenger-user-message: #ffd5ff;
+ }
+ 

@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -39,7 +40,7 @@ public class ReservationController {
 
 	@Autowired
 	MovieListRepository movieListRepository;
-	
+
 	@Autowired
 	SeatRepository seatRepository;
 
@@ -51,70 +52,73 @@ public class ReservationController {
 		model.addAttribute("areaList", areaList);
 		model.addAttribute("mlList", mlList);
 
-		List<String> dateList = new ArrayList<>(15);
-		
+		List<String> dateList = new ArrayList<>(10);
+
 		Calendar cal = Calendar.getInstance();
 		String format = "dd";
 		SimpleDateFormat sdf = new SimpleDateFormat(format);
+
+		// 오늘날짜
 		String date = sdf.format(cal.getTime());
+		// 오늘요일
 		int day = cal.get(Calendar.DAY_OF_WEEK);
 		String korDayOfWeek = "";
 		switch (day) {
-		    case 1:
-		        korDayOfWeek = "일";
-		        break;
-		    case 2:
-		        korDayOfWeek = "월";
-		        break;
-		    case 3:
-		        korDayOfWeek = "화";
-		        break;
-		    case 4:
-		        korDayOfWeek = "수";
-		        break;
-		    case 5:
-		        korDayOfWeek = "목";
-		        break;
-		    case 6:
-		        korDayOfWeek = "금";
-		        break;
-		    case 7:
-		        korDayOfWeek = "토";
-		        break;
+		case 1:
+			korDayOfWeek = "일";
+			break;
+		case 2:
+			korDayOfWeek = "월";
+			break;
+		case 3:
+			korDayOfWeek = "화";
+			break;
+		case 4:
+			korDayOfWeek = "수";
+			break;
+		case 5:
+			korDayOfWeek = "목";
+			break;
+		case 6:
+			korDayOfWeek = "금";
+			break;
+		case 7:
+			korDayOfWeek = "토";
+			break;
 		}
-		// System.out.println(korDayOfWeek);
 		dateList.add(korDayOfWeek + " " + date);
 
+		// 오늘로부터 9일동안 데이터 가져오기
 		Calendar day1 = Calendar.getInstance();
 
-		for (int i = 0; i < 14; i++) {
+		for (int i = 0; i < 9; i++) {
 			day1.add(Calendar.DATE, +1);
 			String dayDate = new java.text.SimpleDateFormat("dd").format(day1.getTime());
-			
+
 			int days = day1.get(Calendar.DAY_OF_WEEK);
 			String kor = "";
 			switch (days) {
-			    case 1:
-			    	kor = "일";
-			        break;
-			    case 2:
-			    	kor = "월";
-			        break;
-			    case 3:
-			    	kor = "화";
-			        break;
-			    case 4:
-			    	kor = "수";
-			        break;
-			    case 5:
-			    	kor = "목";
-			        break;
-			    case 6:
-			    	kor = "금";
-			        break;
-			    case 7:
-			    	kor = "토";
-			        break;
+			case 1:
+				kor = "일";
+				break;
+			case 2:
+				kor = "월";
+				break;
+			case 3:
+				kor = "화";
+				break;
+			case 4:
+				kor = "수";
+				break;
+			case 5:
+				kor = "목";
+				break;
+			case 6:
+				kor = "금";
+				break;
+			case 7:
+				kor = "토";
+				break;
 			}
 			dateList.add(kor + " " + dayDate);
 			// System.out.println(kor);
@@ -122,6 +126,7 @@ public class ReservationController {
 		model.addAttribute("dateList", dateList);
 	}
 
+	// 지역 입력받아서 세부지역 뿌려주기
 	@ResponseBody // ajax로 받으려면 ResponseBody를 써야함
 	@PostMapping("/option")
 	public List<CinemaDto> option(@RequestParam("aNo") int aNo, Model model, HttpSession session) {
@@ -135,6 +140,7 @@ public class ReservationController {
 		return cList;
 	}
 
+	// 선택한 포스터 가져오기
 	@ResponseBody
 	@PostMapping("/poster")
 	public String poster(@RequestParam("mlName") String name, HttpSession session) {
@@ -145,23 +151,41 @@ public class ReservationController {
 		return imgurl;
 	}
 
+	// reserve에서 seat으로 data(session) 전송
+	@ResponseBody
 	@PostMapping("/reserve")
-	public String reserve(HttpSession session, ReservedDto rDto) {
+	public void reserve(HttpSession session, ReservedDto rDto) {
 
 		session.setAttribute("rSession", rDto);
 
-		return "redirect:/reservation/seat.do";
 	}
 
+	/*************************** 좌석 선택 ***************************/
+
 	@GetMapping("/seat.do")
-	public void h(Model model) {
+	public void seat(Model model) {
+
+		// System.out.println(rSession);
 		List<SeatDto> sList = seatRepository.findAll();
-		
+
 		model.addAttribute("sList", sList);
+
+	}
+
+	@ResponseBody
+	@PostMapping("/seats")
+	public void getSeats(ReservedDto rDto, @SessionAttribute ReservedDto rSession) {
+
+		rSession.setRPeople(rDto.getRPeople());
+		rSession.setRSeats(rDto.getRSeats());
 	}
 
 	@GetMapping("/payment.do")
-	public void a() {
+	public void payment(Model model, @SessionAttribute ReservedDto rSession) {
+		 System.out.println(rSession);
 
+		Optional<MovieListDto> movieList = movieListRepository.selectByUserIdAndPw(rSession.getRMovie());
+		//System.out.println(movieList);
+		model.addAttribute("movieList", movieList.get());
 	}
 }

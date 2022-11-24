@@ -10,19 +10,20 @@ $('.p-num').click(function() {
 	let total = parseInt(aValue) + parseInt(tValue) + parseInt(sValue);
 	
 	if (total > 0) {
-		$("input:checkbox[name='seat']").prop("disabled", false);
+		$("input:checkbox[name='rSeats']").prop("disabled", false);
 	} else if(total == 0){
-		$("input:checkbox[name='seat']").prop("disabled", true);
+		$("input:checkbox[name='rSeats']").prop("disabled", true);
 	}
 
 })
 
-
+let total;
+let seats;
 function count(event) {
 	
-	let c = $('input:checkbox[name=seat]:checked');
+	let c = $('input:checkbox[name=rSeats]:checked');
 	
-	let total = parseInt(aValue) + parseInt(tValue) + parseInt(sValue);
+	total = parseInt(aValue) + parseInt(tValue) + parseInt(sValue);
 	$('.s-num').attr("disabled", false);
 
 	let cv = c.length;
@@ -32,5 +33,24 @@ function count(event) {
 	}
 	
 	let seatNum = new Array();
-	console.log(event.target.val());
+	seats = c.next().text();
+	console.log(c.next().text());
 }
+
+
+$('#paygo').click(function(){
+	$.ajax({
+		type: 'POST',
+		url: "seats",
+		data: {
+			rPeople: total,
+			rSeats: seats
+		},
+		success: function(data) {
+			console.log("success");
+		},
+		error: function(error) {
+			console.log("error");
+		}
+	});
+});
