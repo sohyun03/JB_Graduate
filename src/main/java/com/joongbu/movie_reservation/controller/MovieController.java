@@ -18,7 +18,7 @@ public class MovieController {
 	
 	@GetMapping("/")
 	public String top10(Model model) {
-		List<MovieListDto> topList = movieListRepository.findTop10ByOrderByMlRateDesc();
+		List<MovieListDto> topList = movieListRepository.findTop10ByOrderByLikeDesc();
 		
 		//System.out.println(topList);
 		model.addAttribute("topList", topList);

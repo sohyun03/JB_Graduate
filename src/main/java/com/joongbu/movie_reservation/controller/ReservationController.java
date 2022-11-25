@@ -28,6 +28,8 @@ import com.joongbu.movie_reservation.repository.CinemaRepository;
 import com.joongbu.movie_reservation.repository.MovieListRepository;
 import com.joongbu.movie_reservation.repository.SeatRepository;
 
+import lombok.ToString;
+
 @RequestMapping("/reservation")
 @Controller
 public class ReservationController {
@@ -48,9 +50,9 @@ public class ReservationController {
 	public void rInser(Model model) {
 
 		List<AreaDto> areaList = areaRepository.findAll();
-		List<MovieListDto> mlList = movieListRepository.findAll();
+		//List<MovieListDto> mlList = movieListRepository.findAll();
 		model.addAttribute("areaList", areaList);
-		model.addAttribute("mlList", mlList);
+		//model.addAttribute("mlList", mlList);
 
 		List<String> dateList = new ArrayList<>(10);
 
@@ -129,7 +131,7 @@ public class ReservationController {
 	// 지역 입력받아서 세부지역 뿌려주기
 	@ResponseBody // ajax로 받으려면 ResponseBody를 써야함
 	@PostMapping("/option")
-	public List<CinemaDto> option(@RequestParam("aNo") int aNo, Model model, HttpSession session) {
+	public List<CinemaDto> option(@RequestParam("aNo") int aNo, HttpSession session) {
 
 		List<CinemaDto> cList = cinemaRepository.findByarea(aNo);
 
@@ -138,6 +140,19 @@ public class ReservationController {
 		session.setAttribute("cList", cList);
 
 		return cList;
+	}
+
+	// 세부지역 받아서 그에 맞는 영화 불러오기
+	@ResponseBody
+	@PostMapping("/option2")
+	public List<MovieListDto> option2(@RequestParam("ciNo") int ciNo, HttpSession session) {
+		
+		List<MovieListDto> mll = movieListRepository.findAll();
+		System.out.println(mll);
+		
+		session.setAttribute("mll", mll);
+		
+		return mll;
 	}
 
 	// 선택한 포스터 가져오기
@@ -182,10 +197,10 @@ public class ReservationController {
 
 	@GetMapping("/payment.do")
 	public void payment(Model model, @SessionAttribute ReservedDto rSession) {
-		 System.out.println(rSession);
+		System.out.println(rSession);
 
 		Optional<MovieListDto> movieList = movieListRepository.selectByUserIdAndPw(rSession.getRMovie());
-		//System.out.println(movieList);
+		// System.out.println(movieList);
 		model.addAttribute("movieList", movieList.get());
 	}
 }

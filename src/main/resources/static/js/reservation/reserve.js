@@ -45,24 +45,32 @@ dateList.forEach((tab, idx) => {
 		dateList[idx].classList.add('active')
 	})
 })
+
+const timebox = document.querySelectorAll('.timebox');
+
+timebox.forEach((tab, idx) => {
+	tab.addEventListener('click', function() {
+
+		timebox.forEach((item) => {
+			item.classList.remove('active')
+		})
+
+		timebox[idx].classList.add('active')
+	})
+})
+
 $("#adul").on('click', '.ad', function() {
 
 	$('#adul li').removeClass('active');
 	$(this).addClass('active');
 
-	//	const areaDetail = document.querySelectorAll('.ad');
-	//
-	//	areaDetail.forEach((tab, idx) => {
-	//		tab.addEventListener('click', function() {
-	//
-	//			areaDetail.forEach((item) => {
-	//				item.classList.remove('active')
-	//			})
-	//
-	//			areaDetail[idx].classList.add('active')
-	//
-	//		})
-	//	})
+})
+
+$(".timebox").on('click', '.ad', function() {
+
+	$('#adul li').removeClass('active');
+	$(this).addClass('active');
+
 })
 
 // 지역 입력받아서 세부지역 뿌려주기
@@ -83,9 +91,23 @@ function area(aNo) {
 	});
 }
 
-
-
-
+function cinema(ciNo) {
+	// console.log(ciNo);
+	$.ajax({
+		type: 'POST',
+		url: "option2",
+		data: {
+			ciNo: ciNo
+		},
+		success: function(data) {
+			$('#mtul').load(location.href + ' #mtul');
+			console.log(data);
+		},
+		error: function(error) {
+			console.log("error");
+		}
+	});
+}
 
 
 
@@ -96,20 +118,20 @@ let getDate = "";
 let getTheater = "";
 let getTime = "";
 
-function aNofuc(aNo){
+function aNofuc(aNo) {
 	getaNo = aNo;
 	// console.log(aNo);
 }
-function ciNofuc(ciName){
+function ciNofuc(ciName) {
 	getciName = ciName;
 	$("#sCinema").text(ciName);
 	//console.log(getciName)
 	// $('input[name=inputValue]').attr('value',"test");
 }
-function mlfuc(mlName){
+function mlfuc(mlName) {
 	movieName = mlName;
-	$("#sTitle").text(mlName); 
-	
+	$("#sTitle").text(mlName);
+
 	$.ajax({
 		type: 'POST',
 		url: "poster",
@@ -141,5 +163,5 @@ $('#seatgo').click(function() {
 			console.log("error");
 		}
 	});
-	
+
 });
