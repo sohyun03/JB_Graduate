@@ -145,14 +145,11 @@ public class ReservationController {
 	// 세부지역 받아서 그에 맞는 영화 불러오기
 	@ResponseBody
 	@PostMapping("/option2")
-	public List<MovieListDto> option2(@RequestParam("ciNo") int ciNo, HttpSession session) {
+	public void option2(@RequestParam("ciNo") int ciNo, HttpSession session) {
 		
-		List<MovieListDto> mll = movieListRepository.findAll();
-		System.out.println(mll);
-		
-		session.setAttribute("mll", mll);
-		
-		return mll;
+		List<MovieListDto> mList = movieListRepository.findAll(ciNo);
+		//System.out.println(mList);
+		session.setAttribute("mList", mList);
 	}
 
 	// 선택한 포스터 가져오기

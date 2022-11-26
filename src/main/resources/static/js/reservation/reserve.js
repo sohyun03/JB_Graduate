@@ -1,9 +1,4 @@
-function areaClick(event) {
-	var pa = event.parentNode;
-	pa.classList.toggle("active");
-}
-
-const cinemaArea = document.querySelectorAll('.ca');
+let cinemaArea = document.querySelectorAll('.ca');
 const ele = document.querySelectorAll('.cinemaArea li')[0];
 ele.classList.add('active');
 cinemaArea.forEach((tab, idx) => {
@@ -18,17 +13,16 @@ cinemaArea.forEach((tab, idx) => {
 	})
 })
 
-const moveTitle = document.querySelectorAll('.mt');
+$("#adul").on('click', '.ad', function() {
 
-moveTitle.forEach((tab, idx) => {
-	tab.addEventListener('click', function() {
+	$('#adul li').removeClass('active');
+	$(this).addClass('active');
+})
 
-		moveTitle.forEach((item) => {
-			item.classList.remove('active')
-		})
+$("#mtul").on('click', '.mt', function() {
 
-		moveTitle[idx].classList.add('active')
-	})
+	$('#mtul li').removeClass('active');
+	$(this).addClass('active');
 })
 
 let dateList = document.querySelectorAll('.dl');
@@ -46,7 +40,7 @@ dateList.forEach((tab, idx) => {
 	})
 })
 
-const timebox = document.querySelectorAll('.timebox');
+let timebox = document.querySelectorAll('.timebox');
 
 timebox.forEach((tab, idx) => {
 	tab.addEventListener('click', function() {
@@ -59,19 +53,7 @@ timebox.forEach((tab, idx) => {
 	})
 })
 
-$("#adul").on('click', '.ad', function() {
-
-	$('#adul li').removeClass('active');
-	$(this).addClass('active');
-
-})
-
-$(".timebox").on('click', '.ad', function() {
-
-	$('#adul li').removeClass('active');
-	$(this).addClass('active');
-
-})
+/*********************ajax 통신*********************/
 
 // 지역 입력받아서 세부지역 뿌려주기
 function area(aNo) {
@@ -82,15 +64,16 @@ function area(aNo) {
 		data: {
 			aNo: aNo
 		},
-		success: function(data) {
+		success: function() {
 			$('#adul').load(location.href + ' #adul');
 		},
-		error: function(error) {
+		error: function() {
 			console.log("error");
 		}
 	});
 }
 
+// 세부지역 받아서 영화 뿌려주기
 function cinema(ciNo) {
 	// console.log(ciNo);
 	$.ajax({
@@ -99,11 +82,10 @@ function cinema(ciNo) {
 		data: {
 			ciNo: ciNo
 		},
-		success: function(data) {
+		success: function() {
 			$('#mtul').load(location.href + ' #mtul');
-			console.log(data);
 		},
-		error: function(error) {
+		error: function() {
 			console.log("error");
 		}
 	});

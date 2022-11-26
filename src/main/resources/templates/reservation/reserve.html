@@ -24,7 +24,7 @@
 					<div class="list-body">
 						<div class="cinema-select-wrap">
 							<div class="cinemaArea">
-								<ul>
+								<ul id="areaul">
 									<li class="ca" th:each="a:${areaList}">
 										<button type="button" th:text="${a.aName}" th:onclick="area([[${a.aNo}]]); aNofuc([[${a.aNo}]]);"></button>
 									</li>
@@ -49,8 +49,8 @@
 						<div class="cinema-select-wrap">
 							<div class="movieTitle">
 								<ul id="mtul">									
-									<li class="mt" th:each="m:${session.mll}">
-										<button type="button" name="rMovie" th:text="${m.mlName}" th:onclick="mlfuc([[${m.mlName}]])"></button>
+									<li class="mt" th:each="ml:${session.mList}">
+										<button type="button" name="rMovie" th:text="${ml.mlName}" th:onclick="mlfuc([[${ml.mlName}]])"></button>
 									</li>
 								</ul>
 							</div>

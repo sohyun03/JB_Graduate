@@ -22,10 +22,10 @@ public interface MovieListRepository extends JpaRepository<MovieListDto, Integer
 
 	List<MovieListDto> findTop10ByOrderByLikeDesc();
 	
-	//@Query(value = "SELECT m FROM MovieListDto m join fetch m.movie t WHERE t.ciNo=:ciNo")
-	//List<MovieListDto> findAll(int ciNo);
+	@Query(value = "SELECT m FROM MovieListDto m join fetch m.movie t WHERE t.ciNo=:ciNo")
+	List<MovieListDto> findAll(int ciNo);
 	
-	@Query(value = "SELECT distinct m FROM MovieListDto m join fetch m.movie")
-	List<MovieListDto> findAll();
+//	@Query(value = "SELECT distinct m FROM MovieListDto m join fetch m.movie")
+//	List<MovieListDto> findAll();
 
 }
