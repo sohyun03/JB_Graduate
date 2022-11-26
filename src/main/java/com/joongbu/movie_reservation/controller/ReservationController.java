@@ -194,7 +194,7 @@ public class ReservationController {
 
 	@GetMapping("/payment.do")
 	public void payment(Model model, @SessionAttribute ReservedDto rSession) {
-		System.out.println(rSession);
+		//System.out.println(rSession);
 
 		Optional<MovieListDto> movieList = movieListRepository.selectByUserIdAndPw(rSession.getRMovie());
 		// System.out.println(movieList);
