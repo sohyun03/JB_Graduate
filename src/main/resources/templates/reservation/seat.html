@@ -113,7 +113,7 @@
 								<div class="seatArea">
 									<label th:each="s, stat:${sList}">
 										<th:block th:if="${s.reserved == 0}">
-											<input type="checkbox" class="s-num" name="rSeats" th:value="${s.sName}" th:onclick="count([[${s.sName}]])" disabled>
+											<input type="checkbox" class="s-num" name="rSeats" th:value="${s.sName}" disabled>
 											<span th:text="${s.sName}"></span>
 										</th:block>
 										<th:block th:unless="${s.reserved == 0}">
