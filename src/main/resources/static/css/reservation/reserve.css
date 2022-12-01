@@ -171,7 +171,7 @@ li button:hover {
 	line-height: 50px;
 }
 .movieStart .active  {
-	border: 2px solid LightCoral;
+	border: 2px solid #ff6666;
 	font-weight: 600;
 }
 /* -------- time / info-box -------- */
@@ -231,7 +231,7 @@ li button:hover {
 
 .time .next {
 	height: 64px;
-	background-color: #f7bcc1;
+	background-color: #fdafb1;
 }
 
 .time .next button {

@@ -41,7 +41,7 @@
 							</dl>
 							<dl>
 								<dt>인원</dt>
-								<dd class="pPerson">[[${session.rSession.rPeople}]]명</dd>
+								<dd class="pPerson">[[${session.rSession.adult} + ${session.rSession.teenager}+ ${session.rSession.soldier}]]명</dd>
 							</dl>
 							<dl>
 								<dt>상영관</dt>
@@ -53,7 +53,7 @@
 							</dl>
 							<dl>
 								<dt>좌석</dt>
-								<dd class="pSeat">B5, B6, B7</dd>
+								<dd class="pSeat">[[${#strings.replace(session.rSession.rSeats,',',', ')}]]</dd>
 							</dl>
 						</div>
 					</div>
@@ -81,16 +81,20 @@
 					</div>
 					<div class="pay-body">
 						<dl class="price1">
-							<dt>티켓금액(3매)</dt>
-							<dd>16000원</dd>
+							<dt>티켓금액([[${session.rSession.adult} + ${session.rSession.teenager}+ ${session.rSession.soldier}]]매)</dt>
+							<dd>[[${#numbers.formatInteger(session.rSession.price, 3, 'COMMA')}]]원</dd>
 						</dl>
 						<dl class="price2">
-							<dt>성인 (6000원 x 2명)</dt>
-							<dd>12000원</dd>
+							<dt>성인 (6,000원 x [[${session.rSession.adult}]]명)</dt>
+							<dd>[[${#numbers.formatInteger((session.rSession.adult)*6000, 3, 'COMMA')}]]원</dd>
 						</dl>
 						<dl class="price23">
-							<dt>청소년 (4000원 x 1명)</dt>
-							<dd>4000원</dd>
+							<dt>청소년 (4,000원 x [[${session.rSession.teenager}]]명)</dt>
+							<dd>[[${#numbers.formatInteger((session.rSession.teenager)*4000, 3, 'COMMA')}]]원</dd>
+						</dl>
+						<dl class="price23">
+							<dt>군인 (3,000원 x [[${session.rSession.soldier}]]명)</dt>
+							<dd>[[${#numbers.formatInteger((session.rSession.soldier)*3000, 3, 'COMMA')}]]원</dd>
 						</dl>
 						<dl class="discount" style="display: none;">
 							<dt></dt>
@@ -99,7 +103,7 @@
 						<hr>
 						<dl class="price3">
 							<dt>총 결제금액</dt>
-							<dd>16000원</dd>
+							<dd>[[${#numbers.formatInteger(session.rSession.price, 3, 'COMMA')}]]원</dd>
 						</dl>
 					</div>
 					<div class="btn-box">

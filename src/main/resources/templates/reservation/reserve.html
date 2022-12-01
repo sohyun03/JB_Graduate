@@ -48,7 +48,7 @@
 					<div class="list-body">
 						<div class="cinema-select-wrap">
 							<div class="movieTitle">
-								<ul id="mtul">									
+								<ul id="mtul">
 									<li class="mt" th:each="ml:${session.mList}">
 										<button type="button" name="rMovie" th:text="${ml.mlName}" th:onclick="mlfuc([[${ml.mlName}]])"></button>
 									</li>
@@ -61,29 +61,21 @@
 				<div class="date-list">
 					<ul>
 						<li>
-							<strong class="year">2022.10</strong>
+							<strong class="year">[[${year}]].[[${month}]]</strong>
 						</li>
-						<li class="dl" th:each="dl:${dateList}">
-							<button type="button" class="hi" th:text="${dl}" value="${dl}"></button>
-						</li>
-						<!-- 							<li class="dl sunday">
-								<button type="button">일 16</button>
+						<th:block th:unless="${#strings.contains(dl,'01')}" th:each="dl:${dateList}">
+							<li class="dl" th:classappend="${(#strings.contains(dl,'토') ? 'saturday':'') + (#strings.contains(dl,'일') ? 'sunday':'')}">
+								<button type="button" th:text="${dl}" value="${dl}"></button>
 							</li>
-							<li class="dl">
-								<button type="button">월 17</button>
-							</li>
+						</th:block>
+						<th:block th:if="${#strings.contains(dl,'01')}" th:each="dl:${dateList}">
 							<li>
-								<strong class="year">2022.11</strong>
+								<strong class="year">[[${year}]].[[${month + 1}]]</strong>
 							</li>
-							<li class="dl saturday">
-								<button type="button">토 15</button>
+							<li class="dl" th:classappend="${(#strings.contains(dl,'토') ? 'saturday':'') + (#strings.contains(dl,'일') ? 'sunday':'')}">
+								<button type="button" th:text="${dl}" value="${dl}"></button>
 							</li>
-							<li class="dl sunday">
-								<button type="button">일 16</button>
-							</li>
-							<li class="dl">
-								<button type="button">월 17</button>
-							</li> -->
+						</th:block>
 					</ul>
 				</div>
 				<div class="time">
@@ -126,7 +118,9 @@
 							</div>
 						</div>
 						<div class="next">
-							<button id="seatgo" th:onclick="|location.href='@{/reservation/seat.do}'|">인원/좌석 선택<span>></span></button>
+							<button id="seatgo" th:onclick="|location.href='@{/reservation/seat.do}'|">
+								인원/좌석 선택<span>></span>
+							</button>
 						</div>
 					</div>
 				</div>

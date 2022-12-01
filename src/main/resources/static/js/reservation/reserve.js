@@ -1,6 +1,7 @@
 let cinemaArea = document.querySelectorAll('.ca');
 const ele = document.querySelectorAll('.cinemaArea li')[0];
 ele.classList.add('active');
+
 cinemaArea.forEach((tab, idx) => {
 	tab.addEventListener('click', function() {
 
@@ -106,7 +107,7 @@ function aNofuc(aNo) {
 }
 function ciNofuc(ciName) {
 	getciName = ciName;
-	$("#sCinema").text(ciName);
+	$("#sCinema").text(ciName+"점");
 	//console.log(getciName)
 	// $('input[name=inputValue]').attr('value',"test");
 }

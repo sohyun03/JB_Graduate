@@ -1,13 +1,18 @@
 package com.joongbu.movie_reservation.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.Data;
 
@@ -22,22 +27,26 @@ import lombok.Data;
 | r_movie  | varchar(45) | NO   |     | NULL    |                |
 | r_date   | date        | NO   |     | NULL    |                |
 | r_cd     | varchar(10) | NO   |     | NULL    |                |
-| r_people | varchar(10) | NO   |     | NULL    |                |
+| adult    | int         | NO   |     | NULL    |                |
+| teenager | int         | NO   |     | NULL    |                |
+| soldier  | int         | NO   |     | NULL    |                |
 | r_seats  | varchar(45) | NO   |     | NULL    |                |
-| date     | date        | NO   |     | NULL    |                |
+| price    | int         | NO   |     | NULL    |                |
+| date     | datetime    | NO   |     | NULL    |                |
 +----------+-------------+------+-----+---------+----------------+
  */
 
 @Data
 @Entity
 @Table(name = "reserved")
+@EntityListeners(AuditingEntityListener.class)
 public class ReservedDto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "r_no")
 	private int rNo;
-	
+
 	@Column(name = "c_no")
 	private int cNo;
 	@Column(name = "r_area")
@@ -50,10 +59,14 @@ public class ReservedDto {
 	private Date r_date;
 	@Column(name = "r_cd")
 	private String r_cd;
-	@Column(name = "r_people")
-	private String rPeople;
+	private int adult;
+	private int teenager;
+	private int soldier;
 	@Column(name = "r_seats")
 	private String rSeats;
-	private Date date;
-	
+	private int price;
+	@CreatedDate
+	private LocalDate date;
+	//private Timestamp date;
+
 }

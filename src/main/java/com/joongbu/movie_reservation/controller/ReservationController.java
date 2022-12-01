@@ -1,6 +1,8 @@
 package com.joongbu.movie_reservation.controller;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -28,8 +30,6 @@ import com.joongbu.movie_reservation.repository.CinemaRepository;
 import com.joongbu.movie_reservation.repository.MovieListRepository;
 import com.joongbu.movie_reservation.repository.SeatRepository;
 
-import lombok.ToString;
-
 @RequestMapping("/reservation")
 @Controller
 public class ReservationController {
@@ -50,9 +50,9 @@ public class ReservationController {
 	public void rInser(Model model) {
 
 		List<AreaDto> areaList = areaRepository.findAll();
-		//List<MovieListDto> mlList = movieListRepository.findAll();
+		// List<MovieListDto> mlList = movieListRepository.findAll();
 		model.addAttribute("areaList", areaList);
-		//model.addAttribute("mlList", mlList);
+		// model.addAttribute("mlList", mlList);
 
 		List<String> dateList = new ArrayList<>(10);
 
@@ -125,6 +125,10 @@ public class ReservationController {
 			dateList.add(kor + " " + dayDate);
 			// System.out.println(kor);
 		}
+		int month = cal.get(Calendar.MONTH) + 1;
+		int year = cal.get(Calendar.YEAR);
+		model.addAttribute("year", year);
+		model.addAttribute("month", month);
 		model.addAttribute("dateList", dateList);
 	}
 
@@ -146,9 +150,9 @@ public class ReservationController {
 	@ResponseBody
 	@PostMapping("/option2")
 	public void option2(@RequestParam("ciNo") int ciNo, HttpSession session) {
-		
+
 		List<MovieListDto> mList = movieListRepository.findAll(ciNo);
-		//System.out.println(mList);
+		// System.out.println(mList);
 		session.setAttribute("mList", mList);
 	}
 
@@ -188,13 +192,19 @@ public class ReservationController {
 	@PostMapping("/seats")
 	public void getSeats(ReservedDto rDto, @SessionAttribute ReservedDto rSession) {
 
-		rSession.setRPeople(rDto.getRPeople());
+		rSession.setAdult(rDto.getAdult());
+		rSession.setTeenager(rDto.getTeenager());
+		rSession.setSoldier(rDto.getSoldier());
 		rSession.setRSeats(rDto.getRSeats());
+		rSession.setPrice(rDto.getPrice());
+		
 	}
+
+	/*************************** 결제 ***************************/
 
 	@GetMapping("/payment.do")
 	public void payment(Model model, @SessionAttribute ReservedDto rSession) {
-		//System.out.println(rSession);
+		System.out.println(rSession);
 
 		Optional<MovieListDto> movieList = movieListRepository.selectByUserIdAndPw(rSession.getRMovie());
 		// System.out.println(movieList);
