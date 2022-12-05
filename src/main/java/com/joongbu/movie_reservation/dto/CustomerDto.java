@@ -6,8 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 
-import lombok.Builder;
 import lombok.Data;
 
 /*
@@ -24,7 +24,6 @@ import lombok.Data;
 
 @Data
 @Entity
-@Builder
 @Table(name = "customer")
 public class CustomerDto {
 	
@@ -33,9 +32,7 @@ public class CustomerDto {
 	@Column(name = "c_no")
 	private int cNo;
 	
-	
 	@Column(name = "c_id")
-	
 	private String cId;
 	@Column(name = "c_pw")
 	private String cPw;

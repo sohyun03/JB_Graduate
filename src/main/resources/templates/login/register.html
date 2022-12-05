@@ -9,27 +9,34 @@
 	<header id="header" th:include="/header"></header>
 	<div class="contents">
 		<div class="registerbox">
-			<label>
-				<p>아이디</p>
-				<input type="text" name="cId" id="cId">
-			</label>
-			<label>
-				<p>이름</p>
-				<input type="text" name="cName" id="cName">
-			</label>
-			<label>
-				<p>이메일</p>
-				<input type="email" name="cEmail" id="cEmail">
-			</label>
-			<label>
-				<p>비밀번호</p>
-				<input type="password" name="cPw" id="cPw">
-			</label>
-			<label>
-				<p>비밀번호 확인</p>
-				<input type="password">
-			</label>
-			<button class="loginbtn">회원가입</button>
+			<form action="/login/register" method="post">
+				<label>
+					<p>아이디</p>
+					<input type="text" name="cId" id="cId">
+					<p id="idNt" class="notice"></p>
+				</label>
+				<label>
+					<p>이름</p>
+					<input type="text" name="cName" id="cName">
+					<p id="nameNt" class="notice"></p>
+				</label>
+				<label>
+					<p>이메일</p>
+					<input type="text" name="cEmail" id="cEmail">
+					<p id="emailNt" class="notice"></p>
+				</label>
+				<label>
+					<p>비밀번호</p>
+					<input type="password" name="cPw" id="cPw">
+					<p id="pwNt" class="notice"></p>
+				</label>
+				<label>
+					<p>비밀번호 확인</p>
+					<input type="password" id="pwCheck">
+					<p id="pwChNt" class="notice"></p>
+				</label>
+				<button class="loginbtn">회원가입</button>
+			</form>
 		</div>
 	</div>
 	<footer id="footer" th:include="/footer"></footer>

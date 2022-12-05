@@ -41,6 +41,13 @@ body {
 	box-sizing: border-box;
 }
 
+.registerbox .notice {
+	margin-bottom: 30px;
+	font-size: 12px;
+	color: tomato;
+	margin-top: 5px;
+}
+
 .loginbox p, .registerbox p {
 	text-align: left;
 	margin-bottom: 5px;
@@ -50,10 +57,13 @@ body {
 	font-size: 17px;
 }
 
+.loginbox input.lInput {
+	margin-bottom: 30px;
+}
+
 .loginbox input, .registerbox input {
 	width: 400px;
 	height: 45px;
-	margin-bottom: 30px;
 	border-style: none;
 	border-bottom: solid 1px #cacaca;
 	border-collapse: collapse;
