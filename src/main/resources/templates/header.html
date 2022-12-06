@@ -8,9 +8,16 @@
 
 	<div class="member_info">
 		<ul>
-			<li>
-				<a th:href="@{/login/login.do}">로그인</a>
-			</li>
+			<th:block th:if="${session.loginUser == null}">
+				<li>
+					<a th:href="@{/login/login.do}">로그인</a>
+				</li>
+			</th:block>
+			<th:block th:unless="${session.loginUser == null}">
+				<li>
+					<a th:href="@{/login/logout}">로그아웃</a>
+				</li>
+			</th:block>
 			<li>
 				<a th:href="@{/login/register.do}">회원가입</a>
 			</li>

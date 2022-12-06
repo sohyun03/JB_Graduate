@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
 
 import lombok.Data;
 
@@ -34,10 +33,13 @@ public class CustomerDto {
 	
 	@Column(name = "c_id")
 	private String cId;
+	
 	@Column(name = "c_pw")
-	private String cPw;
+	private String pw;
+	
 	@Column(name = "c_name")
 	private String cName;
+	
 	@Column(name = "c_email")
 	private String cEmail;
 }

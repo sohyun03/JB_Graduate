@@ -11,15 +11,17 @@
 		<div class="loginbox">
 			<label>
 				<p>아이디</p>
-				<input class="lInput" type="text">
+				<input class="lInput" id="id" type="text">
 			</label>
 			<label>
 				<p>비밀번호</p>
-				<input class="lInput" type="password">
+				<input class="lInput" id="pw" type="password">
 			</label>
-			<button class="loginbtn">로그인</button>
+			<button class="loginbtn" id="login">로그인</button>
 		</div>
 	</div>
 	<footer id="footer" th:include="/footer"></footer>
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<script src="/js/login/login.js"></script>
 </body>
 </html>

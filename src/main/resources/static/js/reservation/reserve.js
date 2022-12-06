@@ -107,7 +107,7 @@ function aNofuc(aNo) {
 }
 function ciNofuc(ciName) {
 	getciName = ciName;
-	$("#sCinema").text(ciName+"점");
+	$("#sCinema").text(ciName + "점");
 	//console.log(getciName)
 	// $('input[name=inputValue]').attr('value',"test");
 }
@@ -131,20 +131,30 @@ function mlfuc(mlName) {
 }
 
 $('#seatgo').click(function() {
-	$.ajax({
-		type: 'POST',
-		url: "reserve",
-		data: {
-			rArea: getaNo,
-			rCinema: getciName,
-			rMovie: movieName
-		},
-		success: function(data) {
-			console.log("success");
-		},
-		error: function(error) {
-			console.log("error");
-		}
-	});
+
+	if (getaNo == 0) {
+		alert("지역을 선택해주세요.")
+	} else if (getciName == "") {
+		alert("영화관을 선택해주세요.")
+	} else if (movieName == "") {
+		alert("영화를 선택해주세요.")
+	} else {
+		$.ajax({
+			type: 'POST',
+			url: "reserve",
+			data: {
+				rArea: getaNo,
+				rCinema: getciName,
+				rMovie: movieName
+			},
+			success: function() {
+				location.replace("/reservation/seat.do");
+			},
+			error: function() {
+				console.log("error");
+			}
+		});
+	}
+
 
 });

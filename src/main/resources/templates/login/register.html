@@ -9,7 +9,6 @@
 	<header id="header" th:include="/header"></header>
 	<div class="contents">
 		<div class="registerbox">
-			<form action="/login/register" method="post">
 				<label>
 					<p>아이디</p>
 					<input type="text" name="cId" id="cId">
@@ -27,7 +26,7 @@
 				</label>
 				<label>
 					<p>비밀번호</p>
-					<input type="password" name="cPw" id="cPw">
+					<input type="password" name="pw" id="cPw">
 					<p id="pwNt" class="notice"></p>
 				</label>
 				<label>
@@ -35,8 +34,7 @@
 					<input type="password" id="pwCheck">
 					<p id="pwChNt" class="notice"></p>
 				</label>
-				<button class="loginbtn">회원가입</button>
-			</form>
+				<button class="loginbtn" id="register">회원가입</button>
 		</div>
 	</div>
 	<footer id="footer" th:include="/footer"></footer>

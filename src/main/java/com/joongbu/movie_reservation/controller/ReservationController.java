@@ -1,8 +1,6 @@
 package com.joongbu.movie_reservation.controller;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -197,7 +195,7 @@ public class ReservationController {
 		rSession.setSoldier(rDto.getSoldier());
 		rSession.setRSeats(rDto.getRSeats());
 		rSession.setPrice(rDto.getPrice());
-		
+
 	}
 
 	/*************************** 결제 ***************************/
@@ -209,5 +207,16 @@ public class ReservationController {
 		Optional<MovieListDto> movieList = movieListRepository.selectByUserIdAndPw(rSession.getRMovie());
 		// System.out.println(movieList);
 		model.addAttribute("movieList", movieList.get());
+	}
+
+	/*************************** 결제 완료 ***************************/
+
+	@GetMapping("/complete.do")
+	public void complete(Model model, @SessionAttribute(required = false) ReservedDto rSession) {
+		
+		if(rSession == null) {
+			System.out.println("없음");
+		}
+		model.addAttribute("reserved", rSession);
 	}
 }
