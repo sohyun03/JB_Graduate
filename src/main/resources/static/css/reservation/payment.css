@@ -92,7 +92,8 @@
 	height: 570px;
 	background-color: #fde8e5;
 }
-.pay2 .pay-body .test{
+
+.pay2 .pay-body .paySelect {
 	border: 1px solid #d6c8c7;
 	border-radius: 5px;
 	width: 120px;
@@ -104,9 +105,22 @@
 	display: inline-block;
 	background-color: #fc898c;
 	color: white;
+	cursor: pointer;
 }
 
+.pay2 .pay-body .paySelect.active {
+	background-color: #fb686b;
+}
 
+.pay2 .pay-body .bank {
+	margin-top: 30px;
+	display: none;
+}
+
+.pay2 .pay-body .bank select {
+	height: 30px;
+	width: 250px;
+}
 
 .pay3 {
 	background: #fafafa;
@@ -179,6 +193,7 @@
 	color: #fff;
 	font-weight: 600;
 	text-align: center;
+	cursor: pointer;
 }
 
 .pay3 .btn-box .pre {

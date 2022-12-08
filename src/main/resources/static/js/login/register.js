@@ -73,7 +73,7 @@ $('#cPw').blur(function() {
 
 	const num = pw.search(/[0-9]/g);
 	const eng = pw.search(/[a-z]/ig);
-	const spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+	const spe = pw.search(/[`.,~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
 
 	if (!pw) {
 		ps = 1;

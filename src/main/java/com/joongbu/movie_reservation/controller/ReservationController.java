@@ -1,6 +1,7 @@
 package com.joongbu.movie_reservation.controller;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -20,12 +21,14 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.joongbu.movie_reservation.dto.AreaDto;
 import com.joongbu.movie_reservation.dto.CinemaDto;
+import com.joongbu.movie_reservation.dto.CustomerDto;
 import com.joongbu.movie_reservation.dto.MovieListDto;
 import com.joongbu.movie_reservation.dto.ReservedDto;
 import com.joongbu.movie_reservation.dto.SeatDto;
 import com.joongbu.movie_reservation.repository.AreaRepository;
 import com.joongbu.movie_reservation.repository.CinemaRepository;
 import com.joongbu.movie_reservation.repository.MovieListRepository;
+import com.joongbu.movie_reservation.repository.ReservedRepository;
 import com.joongbu.movie_reservation.repository.SeatRepository;
 
 @RequestMapping("/reservation")
@@ -43,6 +46,9 @@ public class ReservationController {
 
 	@Autowired
 	SeatRepository seatRepository;
+	
+	@Autowired
+	ReservedRepository reservedRepository;
 
 	@GetMapping("/reserve.do")
 	public void rInser(Model model) {
@@ -202,21 +208,36 @@ public class ReservationController {
 
 	@GetMapping("/payment.do")
 	public void payment(Model model, @SessionAttribute ReservedDto rSession) {
-		System.out.println(rSession);
 
 		Optional<MovieListDto> movieList = movieListRepository.selectByUserIdAndPw(rSession.getRMovie());
 		// System.out.println(movieList);
 		model.addAttribute("movieList", movieList.get());
 	}
 
+	@ResponseBody
+	@PostMapping("/reserveDB")
+	public int reserveDB(@SessionAttribute ReservedDto rSession, @SessionAttribute CustomerDto loginUser) {
+
+		rSession.setCNo(loginUser.getCNo());
+		
+		LocalDate now = LocalDate.now();
+		rSession.setDate(now);		
+		
+		System.out.println(rSession);
+		reservedRepository.save(rSession);
+		
+		return 1;
+	}
+
 	/*************************** 결제 완료 ***************************/
 
 	@GetMapping("/complete.do")
 	public void complete(Model model, @SessionAttribute(required = false) ReservedDto rSession) {
-		
-		if(rSession == null) {
+
+		if (rSession == null) {
 			System.out.println("없음");
 		}
 		model.addAttribute("reserved", rSession);
+
 	}
 }

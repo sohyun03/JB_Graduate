@@ -24,19 +24,17 @@ body {
 	padding-top: 50px;
 	min-height: 49vh;
 }
-.comarea{
-	font-size: 20px;
-	line-height: 2;
-	text-align: center;
-}
-.payinfo{
-	margin: 0 auto;
+
+.myReserved {
 	margin-top: 50px;
-	width: 500px;
-	padding-left: 15px;
-}
-dl{
 	display: flex;
-	border-bottom: 1px solid #a6a6a6;
-	margin: 10px;
+}
+
+.rbox {
+	margin-bottom: 40px;
+	margin-right: 90px;
+}
+
+dl {
+	display: flex;
 }

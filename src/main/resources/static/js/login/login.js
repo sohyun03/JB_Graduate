@@ -1,3 +1,9 @@
+$('#pw').keydown(function(e) {
+	if (e.keyCode == 13) {
+		$('#login').click();
+	}
+});
+
 $('#login').click(function() {
 
 	const id = $('#id').val();

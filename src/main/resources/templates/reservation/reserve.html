@@ -65,7 +65,7 @@
 						</li>
 						<th:block th:unless="${#strings.contains(dl,'01')}" th:each="dl:${dateList}">
 							<li class="dl" th:classappend="${(#strings.contains(dl,'토') ? 'saturday':'') + (#strings.contains(dl,'일') ? 'sunday':'')}">
-								<button type="button" th:text="${dl}" value="${dl}"></button>
+								<button type="button" th:text="${dl}" value="${dl}" th:onclick="dfuc([[${dl}]])"></button>
 							</li>
 						</th:block>
 						<th:block th:if="${#strings.contains(dl,'01')}" th:each="dl:${dateList}">
@@ -73,7 +73,7 @@
 								<strong class="year">[[${year}]].[[${month + 1}]]</strong>
 							</li>
 							<li class="dl" th:classappend="${(#strings.contains(dl,'토') ? 'saturday':'') + (#strings.contains(dl,'일') ? 'sunday':'')}">
-								<button type="button" th:text="${dl}" value="${dl}"></button>
+								<button type="button" th:text="${dl}" value="${dl}" th:onclick="dfuc([[${dl}]])"></button>
 							</li>
 						</th:block>
 					</ul>
@@ -88,8 +88,8 @@
 								<span>2D/5관</span>
 							</div>
 							<div class="movieStart">
-								<button class="timebox">15:00~17:10</button>
-								<button class="timebox">18:30~20:40</button>
+								<button class="timebox" th:onclick="tfuc(1)">15:00~17:10</button>
+								<button class="timebox" th:onclick="tfuc(2)">18:30~20:40</button>
 							</div>
 						</div>
 						<div class="info-box">
@@ -105,15 +105,15 @@
 								</dl>
 								<dl>
 									<dt>상영관</dt>
-									<dd class="sTheater">2D/5관</dd>
+									<dd class="sTheater" id="sTheater">상영관</dd>
 								</dl>
 								<dl>
 									<dt>날짜</dt>
-									<dd class="sDate">2022-11-25(금)</dd>
+									<dd class="sDate" id="sDate">날짜</dd>
 								</dl>
 								<dl>
 									<dt>상영시간</dt>
-									<dd class="sTime">15:00~17:10</dd>
+									<dd class="sTime" id="sTime">시간</dd>
 								</dl>
 							</div>
 						</div>

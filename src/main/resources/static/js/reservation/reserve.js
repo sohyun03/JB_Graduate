@@ -53,7 +53,6 @@ timebox.forEach((tab, idx) => {
 		timebox[idx].classList.add('active')
 	})
 })
-
 /*********************ajax 통신*********************/
 
 // 지역 입력받아서 세부지역 뿌려주기
@@ -124,10 +123,29 @@ function mlfuc(mlName) {
 		success: function(data) {
 			document.getElementById("posterThum").src = data;
 		},
-		error: function(error) {
+		error: function() {
 			console.log("error");
 		}
 	});
+}
+function dfuc(date) {
+	let d = date.substr(0, 1);
+	let b = date.substr(2, 3);
+	getDate = "2022-12-" + b + " (" + d + ")";
+	$("#sDate").text(getDate);
+}
+function tfuc(time) {
+	//console.log(time);
+
+	if (time == 1) {
+		getTime = "15:00~17:10";
+		$("#sTime").text(getTime);
+		$("#sTheater").text("2D/5관");
+	} else if (time == 2) {
+		getTime = "18:30~20:40";
+		$("#sTime").text(getTime);
+		$("#sTheater").text("2D/5관");
+	}
 }
 
 $('#seatgo').click(function() {
@@ -138,6 +156,10 @@ $('#seatgo').click(function() {
 		alert("영화관을 선택해주세요.")
 	} else if (movieName == "") {
 		alert("영화를 선택해주세요.")
+	} else if (getDate == "") {
+		alert("날짜를 선택해주세요.")
+	} else if (getTime == "") {
+		alert("시간을 선택해주세요.")
 	} else {
 		$.ajax({
 			type: 'POST',
@@ -145,7 +167,9 @@ $('#seatgo').click(function() {
 			data: {
 				rArea: getaNo,
 				rCinema: getciName,
-				rMovie: movieName
+				rMovie: movieName,
+				rDate: getDate,
+				rTime: getTime
 			},
 			success: function() {
 				location.replace("/reservation/seat.do");

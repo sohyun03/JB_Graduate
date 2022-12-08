@@ -39,7 +39,6 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "reserved")
-@EntityListeners(AuditingEntityListener.class)
 public class ReservedDto {
 
 	@Id
@@ -55,10 +54,13 @@ public class ReservedDto {
 	private String rCinema;
 	@Column(name = "r_movie")
 	private String rMovie;
+	
 	@Column(name = "r_date")
-	private Date r_date;
+	private String rDate;
+	@Column(name = "r_time")
+	private String rTime;
 	@Column(name = "r_cd")
-	private String r_cd;
+	private String rCd;
 	private int adult;
 	private int teenager;
 	private int soldier;

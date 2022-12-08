@@ -35,9 +35,16 @@
 				<a th:href="@{/recommend.do}">영화추천</a>
 			</li>
 			<!-- 추천 넣어보고 이상하면 스토어 -->
-			<li>
-				<a>마이페이지</a>
-			</li>
+			<th:block th:if="${session.loginUser == null}">
+				<li>
+					<a></a>
+				</li>
+			</th:block>
+			<th:block th:unless="${session.loginUser == null}">
+				<li>
+					<a th:href="@{/login/mypage.do}">마이페이지</a>
+				</li>
+			</th:block>
 		</ul>
 	</div>
 </nav>

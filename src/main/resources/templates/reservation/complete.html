@@ -4,11 +4,41 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" th:href="@{/css/reservation/complete.css}">
 
-<title>곰수이 시네마 - 예매</title>
+<title>곰수이 시네마</title>
 </head>
 <body>
 	<header id="header" th:include="/header"></header>
-	<div class="contents"></div>
+	<div class="contents">
+		<div class="comarea">
+			<h4>결제가 완료되었습니다.</h4>
+			<div class="payinfo">
+				<dl>
+					<dt>극장</dt>
+					<dd>[[${session.rSession.rCinema}]]점</dd>
+				</dl>
+				<dl>
+					<dt>영화</dt>
+					<dd>[[${session.rSession.rMovie}]]</dd>
+				</dl>
+				<dl>
+					<dt>인원</dt>
+					<dd>[[${session.rSession.adult} + ${session.rSession.teenager}+ ${session.rSession.soldier}]]명</dd>
+				</dl>
+				<dl>
+					<dt>날짜</dt>
+					<dd>[[${session.rSession.rDate}]]</dd>
+				</dl>
+				<dl>
+					<dt>시간</dt>
+					<dd>[[${session.rSession.rTime}]]</dd>
+				</dl>
+				<dl>
+					<dt>좌석</dt>
+					<dd>[[${#strings.replace(session.rSession.rSeats,',',', ')}]]</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
 	<footer id="footer" th:include="/footer"></footer>
 </body>
 </html>

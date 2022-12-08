@@ -1,5 +1,8 @@
 package com.joongbu.movie_reservation.controller;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -15,9 +18,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.joongbu.movie_reservation.dto.CustomerDto;
+import com.joongbu.movie_reservation.dto.ReservedDto;
 import com.joongbu.movie_reservation.repository.CustomerRepository;
+import com.joongbu.movie_reservation.repository.ReservedRepository;
 import com.joongbu.movie_reservation.service.UserService;
 
 @RequestMapping("/login")
@@ -26,6 +32,9 @@ public class LoginController {
 
 	@Autowired
 	CustomerRepository customerRepository;
+	
+	@Autowired
+	ReservedRepository reservedRepository;
 
 	private UserService userService;
 
@@ -88,7 +97,7 @@ public class LoginController {
 
 	@GetMapping("/register.do")
 	public void register() {
-
+		
 	}
 
 	// 회원가입버튼 누르면 오는 곳
@@ -100,6 +109,25 @@ public class LoginController {
 
 		// redirect => post로 넘길때 새로고침시 중복 submit 방지
 		return 0;
+	}
+
+	@GetMapping("/mypage.do")
+	public String mypage(@SessionAttribute(required = false) CustomerDto loginUser, Model model, ReservedDto reserved) {
+
+		if(loginUser == null) {
+			return "/";
+		}
+		
+		List<ReservedDto> myreserved = null;
+		
+		try {
+			myreserved = reservedRepository.findAll(loginUser.getCNo());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("myreserved", myreserved);
+		return "/login/mypage";
 	}
 
 	@GetMapping("/logout")
