@@ -1,6 +1,6 @@
 # JB_Graduate
 
-- Language: JAVA
+- Language: JAVA, Python
 - Framework: Spring Boot
 - DBMS: MySQL
-- Spring Data Jpa, thymeleaf 사용
+- Spring Data Jpa, Thymeleaf 사용
