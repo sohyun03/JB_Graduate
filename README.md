@@ -2,5 +2,5 @@
 
 - Language: JAVA
 - Framework: Spring Boot
-- DB: MySQL
+- DBMS: MySQL
 - Spring Data Jpa, thymeleaf 사용
