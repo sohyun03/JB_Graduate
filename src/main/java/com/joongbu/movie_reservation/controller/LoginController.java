@@ -1,7 +1,5 @@
 package com.joongbu.movie_reservation.controller;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -107,7 +105,7 @@ public class LoginController {
 		System.out.println(customer);
 		customerRepository.save(customer);
 
-		// redirect => post로 넘길때 새로고침시 중복 submit 방지
+		// redirect => post로 넘길때 새로고침시 중복 submit 방지(post일땐 redirect로 넘겨야함)
 		return 0;
 	}
 

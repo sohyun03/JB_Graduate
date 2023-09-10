@@ -183,7 +183,7 @@ public class ReservationController {
 	/*************************** 좌석 선택 ***************************/
 
 	@GetMapping("/seat.do")
-	public void seat(Model model) {
+	public void seat(Model model, @SessionAttribute ReservedDto rSession) {
 
 		// System.out.println(rSession);
 		List<SeatDto> sList = seatRepository.findAll();

@@ -2,6 +2,8 @@ package com.joongbu.movie_reservation.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,11 +19,12 @@ public class MovieController {
 	MovieListRepository movieListRepository;
 	
 	@GetMapping("/")
-	public String top10(Model model) {
+	public String top10(Model model, HttpSession session) {
 		List<MovieListDto> topList = movieListRepository.findTop10ByOrderByLikeDesc();
 		
 		//System.out.println(topList);
 		model.addAttribute("topList", topList);
+		session.setAttribute("key", topList);
 		
 		return "index.html";
 	}

@@ -29,7 +29,7 @@ import lombok.ToString;
 +---------+--------------+------+-----+---------+----------------+
  */
 
-@Data
+@Data  //lombok
 @Entity
 @Table(name = "movie_list")
 @ToString(exclude = "movie")
